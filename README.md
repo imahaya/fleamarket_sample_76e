@@ -53,7 +53,7 @@ Things you may want to cover:
 |city|string|null: false|
 |address|string|null: false|
 ### Association
-- has_many :users
+- belongs_to :user
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -90,7 +90,7 @@ Things you may want to cover:
 |consignor_area|string|null: false|
 |price|integer|null: false|
 |days|integer|null: false|
-|condition|string|null: false|
+|condition|integer|null: false|
 |size|string|null: false|
 |category_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
