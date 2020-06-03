@@ -38,15 +38,22 @@ Things you may want to cover:
 |birthday|date|null: false|
 |user_image|string|
 |introduction|text|
-|post_code|integer(7)|null: false|
-|prefecture_code|integer|null: false|
-|city|string|null: false|
-|address|string|null: false|
 |phone_number|integer|null: false,unique: true|
 ### Association
 - has_many :products
 - has_many :cards
-- belongs_to :destinations
+- belongs_to :destination
+- belongs_to :address
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_code|integer(7)|null: false|
+|prefecture_code|integer|null: false|
+|city|string|null: false|
+|address|string|null: false|
+### Association
+- has_many :users
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -83,7 +90,7 @@ Things you may want to cover:
 |consignor_area|string|null: false|
 |price|integer|null: false|
 |days|integer|null: false|
-|status|string|null: false|
+|condition|string|null: false|
 |size|string|null: false|
 |category_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
@@ -99,6 +106,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
 
