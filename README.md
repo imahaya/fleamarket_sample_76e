@@ -24,7 +24,7 @@ Things you may want to cover:
 * ...
 
 
-# ChatSpace DB設計
+# fleamarket_sample_76e DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
