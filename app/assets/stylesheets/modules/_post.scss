@@ -413,14 +413,24 @@ footer {
     }
   }
   .purchase {
+    background: #3CCACE;
+    border-radius: 4%;
+    bottom: 32px;
+    right: 32px;
+    position: fixed;
+    padding: 15px;
+    &__text {
+      color: #fff;
+      display: block;
+      font-size: 15px;
+      text-decoration: none;
+      margin-bottom: 5px;
+      text-align: center;
+    }
     &__img {
-      width: 120px;
-      background: #3CCACE;
-      border-radius: 4%;
-      bottom: 32px;
-      right: 32px;
-      position: fixed;
-      padding: 15px;
+      width: 60px;
+      height: 60px;
+      margin: 0 18px;
     }
   }
 }
