@@ -40,7 +40,7 @@ Things you may want to cover:
 |introduction|text|
 |phone_number|integer|null: false,unique: true|
 ### Association
-- has_many :products
+- has_many :items
 - has_many :cards
 - belongs_to :destination
 - belongs_to :address
@@ -82,10 +82,10 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## productsテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_name|string|null: false|
+|item_name|string|null: false|
 |introduction|text|null: false|
 |consignor_area|string|null: false|
 |price|integer|null: false|
@@ -106,16 +106,16 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|product_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :product
+- belongs_to :item
 
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|add_index: true|
 ### Association
-- has_many :products
+- has_many :items
 
 ## categorysテーブル
 |Column|Type|Options|
@@ -123,4 +123,4 @@ Things you may want to cover:
 |name|string|null: false|
 |ancestry|string|null: false|
 ### Association
-- has_many :products
+- has_many :items
