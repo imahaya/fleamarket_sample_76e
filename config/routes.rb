@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'login/controller'
-  root to: 'items#index'
+  root "posts#index"
+  resources :posts, only: [:index]
 end
+
