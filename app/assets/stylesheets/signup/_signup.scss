@@ -1,3 +1,184 @@
-// Place all the styles related to the signup controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+a, a:visited, a:focus, a:hover {
+  text-decoration: none;
+}
+
+* {
+  list-style: none;
+}
+
+.login__header {
+  width: 100%;
+  height: 128px;
+  background-color: whitesmoke;
+}
+.loginHeader__title-img {
+  height: 50px;
+  width: 150px;
+  display: block;
+  margin: auto;
+  padding-top:50px ;
+}
+
+.signup__main {
+  width: 100%;
+  background-color: whitesmoke;
+  &__panel {
+  max-width: none;
+  margin: 0 auto;
+  width: 700px;
+  background-color: white;
+  padding-bottom: 30px;
+  }
+}
+
+// ＃ここから
+.signup-head {
+  font-weight: bold;
+  font-size: 22px;
+  padding: 32px;
+  text-align: center;
+  border: 1px solid whitesmoke;
+}
+
+.signup-contens {
+  max-width: 343px;
+  margin: auto;
+}
+
+.signup-form {
+  margin: 20px 0 0;
+  height: 90px;
+  &__top {
+    display: flex;
+  }
+}
+
+.form-title {
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  font-weight: bold;
+  font-size: 13px;
+  &__name {
+    font-size: 14px;
+    color: red;
+    margin-left: 10px;
+  }
+}
+
+.form-require {
+  margin: 0 0 5px 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+  background-color: red;
+}
+
+.input-name {
+  width: 100%;
+  height: 45px;
+  border-color: #ea352d;
+  border-width:thin;
+  border-radius: 4px;
+}
+
+.input-nameinfo {
+  width: 43%;
+  margin-left: 13px;
+  height: 45px;
+  border-color: #ea352d;
+  border-width:thin;
+  border-radius: 4px;
+}
+
+.identification {
+  margin: 20px 0 0;
+  height: 80px;
+}
+
+.identification h3 {
+  font-weight: bold;
+}
+
+.identification p {
+  font-size: 14px;
+}
+
+.identification__name {
+  margin: 20px 0 0;
+  height: 120px;
+}
+
+.birthday {
+  margin: 20px 0 0;
+  height: 120px;
+}
+
+.select-wrap{
+  text-align: center;
+  &__year {
+    height: 60px;
+    width: 20%;
+  }
+  &__month {
+    height: 60px;
+    width: 20%;
+  }
+  &__day {
+    height: 60px;
+    width: 20%;
+  }
+}
+
+.signupform-text {
+  // margin: 10px 0 0;
+  height: 50px;
+  color: gray;
+  font-size: 14px;
+}
+
+.signup-group__btn {
+  margin: 24px 0 0;
+  width: 75%;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  // margin-bottom: 20px;
+  height: 45px;
+  border-radius: 5px;
+  display: block;
+  margin: auto;
+  // margin-top: 30px;
+}
+
+
+// ここまで
+
+.login-footer {
+  width: 100%;
+  height: 150px;
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+
+.login-nuv {
+  // display: flex;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.login-nuv li {
+  display: inline;
+  margin-right: 30px;
+  font-size: 14px;
+  color: black;
+}
+
+.loginFooter__title-img {
+//   background-color: wheat;
+  height: 50px;
+  width: 150px;
+  display: block;
+  margin: auto;
+}
