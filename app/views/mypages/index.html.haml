@@ -1,0 +1,202 @@
+.mypage-all
+  = render :partial => "posts/header"
+  %nav.mypage-nav
+    %ul
+      %li
+        = link_to "", class: "list-item_mypage" do
+          FURIMA
+        %i >
+      %li
+        %span マイページ
+  .mypage-main
+    .mypage-main_content
+      %section.content-user
+        = link_to "" do
+          %figure
+            = image_tag("")
+          %h2.content-user_title TEST
+          .content-user_number
+            %div
+              評価
+              %span.bold 0
+            %div
+              出品数
+              %span.bold 0
+      %section.content-todo
+        %ul.todo-tabs
+          %li.todo-tabs_active
+            %h3
+              = link_to "", class: "list-item_mypage" do
+                お知らせ
+
+        .mypage_main
+          %ul#mypage-tab-notification.mypage_main-pane
+            %li
+              = link_to "", class: "mypage-pane-link" do
+                %figure
+                  = image_tag("//static.mercdn.net/images/mercari_profile.png")
+                .mypage-item-body
+                  .mypage-item-text テスト
+                  %time
+                    %i.icon-time
+                    %span 9 時間前
+                %i.icon-arrow-right
+            %li
+              = link_to "", class: "mypage-pane-link" do
+                %figure
+                  = image_tag("//static.mercdn.net/images/mercari_profile.png")
+                .mypage-item-body
+                  .mypage-item-text テスト
+                  %time
+                    %i.icon-time
+                    %span 9 時間前
+                %i.icon-arrow-right
+            %li
+              = link_to "", class: "mypage-pane-link" do
+                %figure
+                  = image_tag("//static.mercdn.net/images/mercari_profile.png")
+                .mypage-item-body
+                  .mypage-item-text テスト
+                  %time
+                    %i.icon-time
+                    %span 9 時間前
+                %i.icon-arrow-right
+            %li
+              = link_to "", class: "mypage-pane-link" do
+                %figure
+                  = image_tag("//static.mercdn.net/images/mercari_profile.png")
+                .mypage-item-body
+                  .mypage-item-text テスト
+                  %time
+                    %i.icon-time
+                    %span 9 時間前
+                %i.icon-arrow-right
+            %li
+              = link_to "", class: "mypage-pane-link" do
+                %figure
+                  = image_tag("//static.mercdn.net/images/mercari_profile.png")
+                .mypage-item-body
+                  .mypage-item-text テスト
+                  %time
+                    %i.icon-time
+                    %span 9 時間前
+                %i.icon-arrow-right
+
+            %li.mypage-go-list
+              = link_to "", class: "mypage-pane-link" do
+                一覧を見る
+            %section.contet-container
+              %h2.contet-container-head 購入した商品
+              %ul.mypage-tabs
+                %li.active
+                  %h3
+                    = link_to "", class: "list-item_mypage" do
+                      取引中
+              .tab-content
+                %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+                  %li.mypage-item-not 取引中の商品がありません
+
+    .mypage-main_side
+      %nav.side-nav
+        %ul.side-nav_list
+          %li
+            = link_to "", class: "list-item_mypage" do
+              マイページ
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              お知らせ
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              やることリスト
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              いいね！一覧
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              出品する
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              下書きリスト
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              出品した商品-出品中
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              出品した商品-取引中
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              出品した商品-売却済み
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              購入した商品-取引中
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              出品した商品-過去の取引
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              ニュース一覧
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              評価一覧
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              ガイド
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              お問い合わせ
+              %i.icon-arrow-right
+        %h3.mypage-nav-head フリマ
+        %ul.side-nav_list
+          %li
+            = link_to "", class: "list-item_mypage" do
+              残高・振込申請
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              ポイント
+              %i.icon-arrow-right
+        %h3.mypage-nav-head 設定
+        %ul.side-nav_list
+          %li
+            = link_to "", class: "list-item_mypage" do
+              プロフィール
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              発送元・お届け先住所変更
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              支払い方法
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              メール/パスワード
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              本人確認
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              電話番号の確認
+              %i.icon-arrow-right
+          %li
+            = link_to "", class: "list-item_mypage" do
+              ログアウト
+              %i.icon-arrow-right
+  = render :partial => "posts/footer"
