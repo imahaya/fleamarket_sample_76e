@@ -5,7 +5,7 @@
   <div class = "login__main__panel">
     <div class = "login__main__no-account">
       <p class="list-text1">アカウントをお持ちでない方はこちら</p>
-      <%= link_to "新規会員登録", "/", class: "signup__button" %>
+      <%= link_to "新規会員登録", signup_index_path, class: "signup__button" %>
     </div>
     <div class = "form-inner">
       <i class="fab fa-google fa-lg btn-black"></i>
