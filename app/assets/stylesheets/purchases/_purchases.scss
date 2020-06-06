@@ -1,7 +1,3 @@
-// Place all the styles related to the purchases controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body{
   width: 1440px;
   height: 1070px;
@@ -20,11 +16,15 @@ body{
       width: 1440px;
       height: 128px;
     
-      h1{
+      .purchases-header-img{
         width: 193px;
         height: 49px;
         margin: 0 auto;
         padding-top: 40px;
+        img{
+          width: 100%;
+          vertical-align: bottom;
+        }
       }
     }
   }
@@ -168,11 +168,12 @@ body{
                 height: 14px;
                 font-size: 14px;
                 font-weight: bold;
-                a {
-                  text-decoration: none;
-                  color: #0099e8;
-                  font-weight: lighter;
-                }
+              }
+              a {
+                text-decoration: none;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
               }
             }
   
@@ -187,11 +188,12 @@ body{
                 height: 14px;
                 font-size: 14px;
                 font-weight: bold;
-                a {
-                  text-decoration: none;
-                  color: #0099e8;
-                  font-weight: lighter;
-                }
+              }
+              a {
+                text-decoration: none;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
               }
             }
   

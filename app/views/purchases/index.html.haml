@@ -2,8 +2,8 @@
   .purchases-container
     .purchases-header
       %h1
-        %a{href: "/"}
-          = link_to image_tag("logo.png", class:"loginHeader__title-img"), "/"
+        .purchases-header-img
+          = link_to image_tag("logo.png")
            
     .purchases-main
       .purchases-main__buy
@@ -37,17 +37,13 @@
               .purchases-user__info
                 .purchases-user__info-inner
                   支払い方法
-                  %a{href: "#"}
-                    %p.purchases-user-info-text
-                      %i.icon-plus-circle
-                    %p.purchases-register-text 登録してください
+                %i.icon-plus-circle
+                =link_to "登録してください"
               .purchases-shipping-address
                 .purchases-shipping-address-inner
                   配送先
-                  %a{href: "#"}
-                    %p.purchases-user-info-text
-                      %i.icon-plus-circle
-                    %p.purchases-register-text 登録してください
+                %i.icon-plus-circle
+                =link_to "登録してください"
               .purchases-buy-item
                 %button.purchases-buy-item__btn{disabled: "disabled", type: "submit"} 購入する
     .purchases-footer
