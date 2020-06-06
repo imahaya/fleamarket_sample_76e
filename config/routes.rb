@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "mypages#index"
-  resources :posts, only: [:index]
+  root "posts#index"
+  resources :posts, only: [:index,:show]
 end
 
