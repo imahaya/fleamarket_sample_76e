@@ -58,13 +58,17 @@
         border-color: rgb(204, 204, 204);
         border-image: initial;
         transition: all 0.5s ease-out 0s;
-        .images-file-select-path {
-          .images-file-icon1 {
-            fill: rgb(34, 34, 34);
-            height: 24px;
-            margin-bottom: 8px;
-            width: 24px;
+        .images-file-open {
+          display: none;
+          .hidden {
+            display: none;
           }
+        }
+        .images-file-icon1 {
+          fill: rgb(34, 34, 34);
+          height: 24px;
+          margin-bottom: 8px;
+          width: 24px;
         }
         .images-form-texts {
           font-size: 12px;
