@@ -1,0 +1,54 @@
+%body
+  .purchases-container
+    .purchases-header
+      %h1
+        .purchases-header-img
+          = link_to image_tag("logo.png")
+           
+    .purchases-main
+      .purchases-main__buy
+        %h2.purchases-main__buy-head 購入内容の確認
+        .purchases-main__buy__content
+          .purchases-main__buy__content-item
+            .purchases-main__buy__content-item-box
+              %h3.purchases-main__buy__content-item-box__image
+                %img.is-higher-height.lazyloaded{alt: "", "data-src": "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077", src: "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077"}/
+              .purchases-main__buy-item-data
+                %p.purchases-main__buy-item-data__name
+                  新品  セサミストリート  ユニクロ  カウズTシャツ 白  ホワイト  KAWS
+                %p.purchases-main__buy-item__price
+                  %span ¥1,999
+                  %span.purchases-main__buy-item__tax （税込）送料込み
+        .purchases-content
+          .purchases-content__inner
+            .purchases-content__inner-form
+              .purchases-price
+                %ul.purchases-price__list
+                  %li.purchases-price__list-pay
+                    .purchases-price__list-pay__form 支払い金額
+                    .purchases-price__list-pay__money ¥1,999
+              .purchases-have-point
+                %ul.buy-accordion.buy-not-have-point
+                  %li.accordion-parent
+                    .checkbox-default-purchases-use-point
+                      %input{type: "checkbox"}/
+                      %i.icon-check
+                      %label ポイントを使用 (所持ポイント: P0)
+              .purchases-user__info
+                .purchases-user__info-inner
+                  支払い方法
+                %i.icon-plus-circle
+                =link_to "登録してください"
+              .purchases-shipping-address
+                .purchases-shipping-address-inner
+                  配送先
+                %i.icon-plus-circle
+                =link_to "登録してください"
+              .purchases-buy-item
+                %button.purchases-buy-item__btn{disabled: "disabled", type: "submit"} 購入する
+    .purchases-footer
+      %ul.purchases-footer__nuv
+        %li プライバシーポリシー
+        %li フリマ利用規約
+        %li 特定商取引に関する表記
+      = link_to image_tag("logo-white.png", class:"purchases-footer__title-img"), "/"

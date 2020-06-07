@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :mypages, only: [:index]
   resources :login, only: [:index]
   resources :signup, only: [:index]
+  resources :purchases, only: [:index]
 end

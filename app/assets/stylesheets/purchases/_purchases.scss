@@ -1,3 +1,249 @@
-// Place all the styles related to the purchases controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  width: 1440px;
+  height: 1070px;
+
+  img{
+    width: 100%;
+    vertical-align: bottom;
+  }
+
+  .purchases-container{
+    width: 1440px;
+    height: 1070px;
+    background-color: whitesmoke;
+  
+    .purchases-header{
+      width: 1440px;
+      height: 128px;
+    
+      .purchases-header-img{
+        width: 193px;
+        height: 49px;
+        margin: 0 auto;
+        padding-top: 40px;
+        img{
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+  
+  .purchases-main{
+    width: 1440px;
+    height: 722px;
+    background-color: #f5f5f5;
+  
+    &__buy{
+      width: 700px;
+      height: 722px;
+      background-color: white;
+      margin: 0 370px;
+  
+  
+      h2{
+        width: 636px;
+        height: 33px;
+        font-size: 22px;
+        font-weight: normal;
+        padding: 32px;
+        text-align: center;
+        font-weight: bold;
+      }
+  
+      &__content{
+        width: 668px;
+        height: 80px;
+        padding: 32px 16px;
+        border-top: 1px solid #f5f5f5;
+  
+        &-item{
+          width: 343px;
+          height: 80px;
+          margin-left: 162.5px;
+  
+          &-box{
+            width: 343px;
+            height: 80px;
+            display: flex;
+  
+            &__image{
+              width: 64px;
+              height: 80px;
+            }
+  
+            .purchases-main__buy-item-data{
+              width: 247px;
+              height: 80px;
+              margin-left: 30px;
+              justify-content: right;
+  
+              &__name{
+                width: 247px;
+                height: 42px;
+                padding-bottom: 8px;
+                color: #333333;
+                font-size: 14px;
+                text-align: left;
+              }
+  
+              span{
+                font-weight: bold;
+                font-size: 13px;
+              }
+              
+              .purchases-main__buy-item__tax{
+                font-weight: bold;
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+  
+      .purchases-content{
+        width: 668px;
+        height: 399px;
+        padding: 32px 16px 48px 16px;
+        border-top: 1px solid #f5f5f5;
+  
+        &__inner{
+          width: 343px;
+          height: 399px;
+          margin: 0 162.5px;
+  
+          &-form{
+            width: 343px;
+            height: 399px;
+  
+            .purchases-price{
+              width: 343px;
+              height: 30px;
+              list-style: none;
+  
+              &__list{
+                width: 343px;
+                height: 30px;
+  
+                &-pay{
+                  width: 343px;
+                  height: 30px;
+                  display: flex;
+  
+                  &__form{
+                    width: 135px;
+                    height: 30px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    padding-top: 5px;
+                  }
+  
+                  &__money{
+                    width: 208px;
+                    height: 30px;
+                    font-size: 25px;
+                    font-weight: bold;
+                    text-align: right;
+                  }
+                }
+              }
+            }
+  
+            .purchases-have-point{
+              width: 343px;
+              height: 14px;
+              margin: 24px 0 32px 0;
+              color: #888888;
+              font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+            }
+            
+            .purchases-user__info{
+              width: 343px;
+              height: 43px;
+              padding: 32px 0;
+              border-top: 1px solid #f5f5f5;
+            
+              &-inner{
+                width: 343px;
+                height: 14px;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              a {
+                text-decoration: none;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
+              }
+            }
+  
+            .purchases-shipping-address{
+              width: 343px;
+              height: 43px;
+              padding: 32px 0;
+              border-top: 1px solid #f5f5f5;
+            
+              &-inner{
+                width: 343px;
+                height: 14px;
+                font-size: 14px;
+                font-weight: bold;
+              }
+              a {
+                text-decoration: none;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
+              }
+            }
+  
+            .purchases-buy-item{
+              width: 343px;
+              height: 50px;
+              padding-top: 32px;      
+              border-top: 1px solid #f5f5f5;
+              text-align: center;
+  
+              &__btn{
+                width: 341px;
+                height: 48px;
+                border: 1px solid #888888;
+                border-radius: 5px;
+                background-color: #888888;
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }  
+  }
+  
+  .purchases-footer{
+    width: 456px;
+    height: 140px;
+    padding: 40px 0;
+    background-color: whitesmoke;
+    margin: 0 auto;
+  
+    &__nuv{
+      margin-bottom: 50px;
+      text-align: center;
+  
+      li{
+        display: inline;
+        margin-right: 16px;
+        margin-left: 15px;
+        font-size: 12px;
+        color: black;
+      }
+    }
+  
+    &__title-img{
+      height: 50px;
+      width: 150px;
+      display: block;
+      margin: auto;
+    }
+  }
+}
