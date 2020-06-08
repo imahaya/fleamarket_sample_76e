@@ -37,14 +37,14 @@ Things you may want to cover:
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
 |address_id|references|null: false, foreign_key: true|
-|mypage_id|references|null: false, foreign_key: true|
 |phone_number|integer|null: false,unique: true|
+|user_image|string|
+|introduction|text|
 ### Association
 - has_many :items
 - has_many :cards
 - belongs_to :seller
 - belongs_to :buyer
-- belongs_to :mypage
 - belongs_to :address
 
 ## addressesテーブル
