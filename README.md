@@ -43,8 +43,8 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :cards
-- belongs_to :seller
-- belongs_to :buyer
+- has_many :sellers
+- has_many :buyers
 - belongs_to :address
 
 ## addressesテーブル
@@ -63,8 +63,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|card_id|references|null: false, foreign_key: true|
-|customer_id|references|null: false, foreign_key: true|
+|card_id|references|null: false|
+|customer_id|references|null: false|
 ### Association
 - belongs_to :user
 
@@ -75,7 +75,7 @@ Things you may want to cover:
 |address_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :address
+- has_many :addresses
 
 ## buyersテーブル
 |Column|Type|Options|
@@ -84,7 +84,7 @@ Things you may want to cover:
 |address_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :address
+- has_many :addresses
 
 ## itemsテーブル
 |Column|Type|Options|
