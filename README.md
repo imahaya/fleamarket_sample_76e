@@ -90,6 +90,7 @@ Things you may want to cover:
 |consignor_area|string|null: false|
 |price|integer|null: false|
 |days|integer|null: false|
+|delivery_fee|integer|null: false|
 |condition|integer|null: false|
 |size|string|null: false|
 |category_id|references|null: false, foreign_key: true|
