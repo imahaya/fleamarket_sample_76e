@@ -36,13 +36,15 @@ Things you may want to cover:
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-|user_image|string|
-|introduction|text|
+|address_id|references|null: false, foreign_key: true|
+|mypage_id|references|null: false, foreign_key: true|
 |phone_number|integer|null: false,unique: true|
 ### Association
 - has_many :items
 - has_many :cards
-- belongs_to :destination
+- belongs_to :seller
+- belongs_to :buyer
+- belongs_to :mypage
 - belongs_to :address
 
 ## addressesテーブル
@@ -54,33 +56,35 @@ Things you may want to cover:
 |address|string|null: false|
 ### Association
 - belongs_to :user
+- belongs_to :seller
+- belongs_to :buyer
 
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_number|integer|null: false,unique: true|
-|expriration_year|integer|null: false|
-|expriration_month|integer|null: false|
-|security_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
+|card_id|references|null: false, foreign_key: true|
+|customer_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
-## destinationsテーブル
+## sellersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|destinations_first_name|string|null: false|
-|destinations_family_name|string|null: false|
-|birthdestinations_first_name_kana|string|null: false|
-|destinations_family_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
-|prefecture_code|integer|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|phone_number|integer|null: false,unique: true|
 |user_id|references|null: false, foreign_key: true|
+|address_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
+- belongs_to :address
+
+## buyersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|address_id|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :address
 
 ## itemsテーブル
 |Column|Type|Options|
@@ -92,10 +96,8 @@ Things you may want to cover:
 |days|integer|null: false|
 |delivery_fee|integer|null: false|
 |condition|integer|null: false|
-|size|string|null: false|
 |category_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
-|image_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
