@@ -41,7 +41,7 @@
         margin-top: 16px;
         margin-bottom: 16px;
       }
-      .form {
+      label {
         height: 150px;
         width: 100%;
         align-content: center;
@@ -60,7 +60,7 @@
         border-image: initial;
         transition: all 0.5s ease-out 0s;
         box-sizing: border-box;
-        .hidden {
+        input {
           display: none;
         }
         .images-file-icon1 {
