@@ -1,5 +1,5 @@
 .items-main
-  = form_with model: @item, remote: true do |f|
+  = form_with model: @item do |form|
     .items-main__images
       .items-main__images__texts
         .items-main__images__texts__text1 出品画像
@@ -18,7 +18,7 @@
         .items-main__introduction__texts__text2 必須
       .items-main__introduction__name
         -# %input.namebox-input{ id: "", name: "", placeholder: "40字まで"}
-        = f.text_field :item_name,size: "67px", placeholder: "商品名 (必須40文字まで)",id: "productr_name"
+        = form.text_field :item_name, placeholder: "商品名 (必須40文字まで)",id: "productr_name"
       .items-main__introduction__texts2
         .items-main__introduction__texts2__text1 商品の説明
         .items-main__introduction__texts2__text2 必須
@@ -195,7 +195,7 @@
     .items-main__btns
       .items-main__btns__list
         -# %button.items-main__btns__list__1{:tabindex => "0", :type => "submit"} 出品する
-        = f.submit :出品する,id: "btn", class: "items-main__btns__list__1"
+        = form.submit :出品する,id: "btn", class: "items-main__btns__list__1"
         %button.items-main__btns__list__2{:tabindex => "0", :type => "button"} 下書きに保存
         %a.items-main__btns__list__3{:href => "/jp/"} もどる
       .items-main__btns__attention

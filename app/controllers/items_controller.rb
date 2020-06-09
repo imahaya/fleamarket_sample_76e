@@ -5,8 +5,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    # Item.create(item_params)
+    
+    # redirect_to root_path
+
+    @item = Item.create(item_params)
+    if @item.save!
     redirect_to root_path
+    else 
+      redirect_to root_path
+    end
   end
 
   private
