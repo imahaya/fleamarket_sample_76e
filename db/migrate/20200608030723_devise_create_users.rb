@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :birthday,                   null: false
       t.string :user_image
       t.text :introduction
-      t.references :address_id, null: false
+      t.references :address_id, null: false, foreign_key:true
       t.integer :phone_number,            null: false
       t.string :encrypted_password,       null: false, default: ""
 
