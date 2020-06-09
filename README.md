@@ -120,7 +120,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## categorysテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
