@@ -107,7 +107,7 @@
       }
       &__name {
         margin-top: 16px;
-        .namebox-input {
+          input {
           height: 48px;
           width: 602px;
           padding-left: 16px;
@@ -132,7 +132,7 @@
       }
       &__form {
         margin-top: 16px;
-        .introduction-input {
+        textarea {
           padding-top: 16px;
           height: 200px;
           width: 602px;

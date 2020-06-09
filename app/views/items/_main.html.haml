@@ -23,7 +23,8 @@
         .items-main__introduction__texts2__text1 商品の説明
         .items-main__introduction__texts2__text2 必須
       .items-main__introduction__form
-        %textarea.introduction-input{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
+        -# %textarea.introduction-input{:name => "description", :placeholder => "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。\n          ", :rows => "7"}
+        = form.text_area :introduction, placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n\n例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。",id: "input",:rows => "7"
       .items-main__introduction__count
         %span 0/1000
     .items-main__details
