@@ -7,9 +7,9 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  # has_many :items
-  # has_many :cards
-  # has_many :sellers
-  # has_many :buyers
+  has_many :items
+  has_many :cards
+  has_many :sellers
+  has_many :buyers
   belongs_to :address
 end
