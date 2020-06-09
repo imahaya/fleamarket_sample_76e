@@ -34,7 +34,8 @@
         .items-main__details__texts__text3 必須
       .items-main__details__select
         .items-main__details__select__category
-          %select.details-category{:name => "categoryId"}
+          -# %select.details-category{:name => "categoryId"}
+          = f.select :category_id#, Category.all.map { |category| [category.name, category.id] }
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "レディース", :value => "1"} レディース
             %option{"aria-selected" => "false", :label => "メンズ", :value => "2"} メンズ
@@ -212,6 +213,4 @@
             や
             %a.attention-text4{:href => "/jp/help_center/getting_started/report_counterfeit_goods/", :rel => "noopener noreferrer", :target => "_blank"}> 盗品物
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
-            %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約
-            に同意したことになります。
-
+            %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約に同意したことになります。
