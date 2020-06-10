@@ -5,13 +5,12 @@
         .items-main__images__texts__text1 出品画像
         .items-main__images__texts__text2 必須
       .items-main__images__text3 最大10枚までアップロードできます
-      = form_for @item do |form|
-        #image-box
-          = form.fields_for :images do |image|
-            .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :image, class: 'js-file'
-              %br/
-              %span.js-remove 削除
+      #image-box
+        = form.fields_for :images do |image|
+          .js-file_group{"data-index" => "#{image.index}"}
+            = image.file_field :image, class: 'js-file'
+            %br/
+            %span.js-remove 削除
 
     .items-main__introduction
       .items-main__introduction__texts
@@ -216,7 +215,7 @@
             %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約に同意したことになります。
 
 
- -# 元データ
+-# 元データ
 -# %label
 -#   #image-box
 -#     = form.fields_for :images do |image| 
