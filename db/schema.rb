@@ -28,21 +28,21 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
   end
 
   create_table "buyers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id_id", null: false
-    t.bigint "address_id_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id_id"], name: "index_buyers_on_address_id_id"
-    t.index ["user_id_id"], name: "index_buyers_on_user_id_id"
+    t.index ["address_id"], name: "index_buyers_on_address_id"
+    t.index ["user_id"], name: "index_buyers_on_user_id"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id_id", null: false
+    t.bigint "user_id", null: false
     t.string "cardr_id", null: false
     t.string "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id_id"], name: "index_cards_on_user_id_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,26 +54,26 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
-    t.bigint "item_id_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id_id"], name: "index_images_on_item_id_id"
+    t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.text "introduction", null: false
-    t.bigint "category_id_id"
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id_id", null: false
-    t.bigint "address_id_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "address_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id_id"], name: "index_sellers_on_address_id_id"
-    t.index ["user_id_id"], name: "index_sellers_on_user_id_id"
+    t.index ["address_id"], name: "index_sellers_on_address_id"
+    t.index ["user_id"], name: "index_sellers_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.date "birthday", null: false
     t.string "user_image"
     t.text "introduction"
-    t.bigint "address_id_id", null: false
+    t.bigint "address_id", null: false
     t.integer "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address_id_id"], name: "index_users_on_address_id_id"
+    t.index ["address_id"], name: "index_users_on_address_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
