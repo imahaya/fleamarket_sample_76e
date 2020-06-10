@@ -6,13 +6,15 @@
         .items-main__images__texts__text2 必須
       .items-main__images__text3 最大10枚までアップロードできます
       %label
-        = form.fields_for :images do |i| 
-          = i.file_field :image, class: "hidden"
-        = link_to image_tag("icon_camera.png", class:"images-file-icon1")
-        %p.images-form-texts
-          ドラッグアンドドロップ
-          %br>/
-          またはクリックしてファイルをアップロード
+        #image-box
+          = form.fields_for :images do |image| 
+            .js-file_group{"data-index" => "#{image.index}"}
+              = image.file_field :image, class: "hidden"
+          = link_to image_tag("icon_camera.png", class:"images-file-icon1")
+          %p.images-form-texts
+            ドラッグアンドドロップ
+            %br>/
+            またはクリックしてファイルをアップロード
     .items-main__introduction
       .items-main__introduction__texts
         .items-main__introduction__texts__text1 商品名
