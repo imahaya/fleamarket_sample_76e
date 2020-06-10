@@ -184,7 +184,7 @@
           %span.items-main__price__prices__form__text3 ¥
           .items-main__price__prices__form__numbers
             .items-main__price__prices__form__numbers__inputarea
-              %input.numbers__inputarea{:autocomplete => "off", :name => "price", :placeholder => "0", :type => "number", :value => ""}/
+              = form.text_field :price, placeholder: "0", type: "number"
         .texts5
           .texts5__text8{"data-test" => "fee-label"}
             %div 販売手数料（10%）

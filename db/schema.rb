@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.string "item_name", null: false
     t.text "introduction", null: false
     t.string "consignor_area", null: false
+    t.integer "price", null: false
     t.integer "days", null: false
     t.integer "delivery_fee", null: false
     t.integer "condition", null: false
