@@ -60,7 +60,7 @@
           .items-main__details__select__texts3__text6 商品の状態
           .items-main__details__select__texts3__text7 必須
         .items-main__details__select__condition
-          = form.select :condition, class: "select-default" do
+          = form.select :condition, class: "" do
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
             %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
@@ -84,7 +84,7 @@
         .items-main__delivery__texts2__text3 必須
       .items-main__delivery__select
         .items-main__delivery__select__fee
-          %select.delivery-fee{:name => "shippingPayer"}
+          = form.select :delivery_fee, class: "" do
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
             %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)
@@ -95,7 +95,7 @@
         .items-main__delivery__texts3__text5 必須
       .items-main__delivery__select2
         .items-main__delivery__select2__area
-          %select.delivery-area{:name => "shippingFromArea"}
+          = form.select :consignor_area, class: "" do
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "北海道", :value => "1"} 北海道
             %option{"aria-selected" => "false", :label => "青森県", :value => "2"} 青森県
@@ -152,7 +152,7 @@
         .items-main__delivery__texts4__text7 必須
       .items-main__delivery__select3
         .items-main__delivery__select3__days
-          %select.delivery-days{:name => "shippingDuration"}
+          = form.select :days, class: "" do
             %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
             %option{"aria-selected" => "false", :label => "1~2日で発送", :value => "1"} 1~2日で発送
             %option{"aria-selected" => "false", :label => "2~3日で発送", :value => "2"} 2~3日で発送
