@@ -34,24 +34,21 @@
         .items-main__details__texts__text3 必須
       .items-main__details__select
         .items-main__details__select__category
-          -# %select.details-category{:name => "categoryId"}
-          = f.select :category_id#, Category.all.map { |category| [category.name, category.id] }
-            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
-            %option{"aria-selected" => "false", :label => "レディース", :value => "1"} レディース
-            %option{"aria-selected" => "false", :label => "メンズ", :value => "2"} メンズ
-            %option{"aria-selected" => "false", :label => "ベビー・キッズ", :value => "3"} ベビー・キッズ
-            %option{"aria-selected" => "false", :label => "インテリア・住まい・小物", :value => "4"} インテリア・住まい・小物
-            %option{"aria-selected" => "false", :label => "本・音楽・ゲーム", :value => "5"} 本・音楽・ゲーム
-            %option{"aria-selected" => "false", :label => "おもちゃ・ホビー・グッズ", :value => "1328"} おもちゃ・ホビー・グッズ
-            %option{"aria-selected" => "false", :label => "コスメ・香水・美容", :value => "6"} コスメ・香水・美容
-            %option{"aria-selected" => "false", :label => "家電・スマホ・カメラ", :value => "7"} 家電・スマホ・カメラ
-            %option{"aria-selected" => "false", :label => "スポーツ・レジャー", :value => "8"} スポーツ・レジャー
-            %option{"aria-selected" => "false", :label => "ハンドメイド", :value => "9"} ハンドメイド
-            %option{"aria-selected" => "false", :label => "チケット", :value => "1027"} チケット
-            %option{"aria-selected" => "false", :label => "自動車・オートバイ", :value => "1318"} 自動車・オートバイ
-            %option{"aria-selected" => "false", :label => "その他", :value => "10"} その他
-          %svg.details-category-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-            %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          = form.select :category_id, class: "select-default" do
+            %option{selected: "selected"} --
+            %option{:value => "レディース"} レディース
+            %option{:value => "メンズ"} メンズ
+            %option{:value => "ベビー・キッズ"} ベビー・キッズ
+            %option{:value => "インテリア・住まい・小物"} インテリア・住まい・小物
+            %option{:value => "本・音楽・ゲーム"} 本・音楽・ゲーム
+            %option{:value => "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+            %option{:value => "コスメ・香水・美容"} コスメ・香水・美容
+            %option{:value => "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+            %option{:value => "スポーツ・レジャー"} スポーツ・レジャー
+            %option{:value => "ハンドメイド"} ハンドメイド
+            %option{:value => "チケット"} チケット
+            %option{:value => "自動車・オートバイ"} 自動車・オートバイ
+            %option{:value => "その他"} その他
         .items-main__details__select__texts2
           .items-main__details__select__texts2__text4 ブランド
           .items-main__details__select__texts2__text5 任意
