@@ -40,7 +40,7 @@ a, a:visited, a:focus, a:hover {
   border: 1px solid whitesmoke;
 }
 
-.signup-contens {
+.signup-contents {
   max-width: 343px;
   margin: auto;
 }
@@ -50,6 +50,13 @@ a, a:visited, a:focus, a:hover {
   height: 90px;
   &__top {
     display: flex;
+  }
+  input {
+    width: 100%;
+    height: 45px;
+    border-color: #ea352d;
+    border-width:thin;
+    border-radius: 4px;
   }
 }
 
@@ -73,14 +80,6 @@ a, a:visited, a:focus, a:hover {
   font-size: 12px;
   vertical-align: top;
   background-color: red;
-}
-
-.input-name {
-  width: 100%;
-  height: 45px;
-  border-color: #ea352d;
-  border-width:thin;
-  border-radius: 4px;
 }
 
 .input-nameinfo {
@@ -108,38 +107,44 @@ a, a:visited, a:focus, a:hover {
 .identification__name {
   margin: 20px 0 0;
   height: 120px;
+  input {
+    width: 43%;
+    margin-left: 13px;
+    height: 45px;
+    border-color: #ea352d;
+    border-width:thin;
+    border-radius: 4px;
+  }
 }
 
 .birthday {
   margin: 20px 0 0;
   height: 120px;
+  .select-wrap{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    select {
+      width: 85px;
+      height: 43px;
+      border-color: #ea352d;
+      border-width: thin;
+      border-radius: 4px;
+    }
+  }
 }
 
-.select-wrap{
-  text-align: center;
-  &__year {
-    height: 60px;
-    width: 20%;
-  }
-  &__month {
-    height: 60px;
-    width: 20%;
-  }
-  &__day {
-    height: 60px;
-    width: 20%;
-  }
-}
 
 .signupform-text {
   // margin: 10px 0 0;
   height: 50px;
   color: gray;
   font-size: 14px;
+  padding-bottom: 20px;
+  padding-top: 30px;
 }
 
 .signup-group__btn {
-  margin: 24px 0 0;
   width: 75%;
   background: #ea352d;
   border: 1px solid #ea352d;
@@ -149,6 +154,7 @@ a, a:visited, a:focus, a:hover {
   border-radius: 5px;
   display: block;
   margin: auto;
+  margin-top: 70px;
   // margin-top: 30px;
 }
 
