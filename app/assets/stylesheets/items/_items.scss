@@ -48,7 +48,8 @@
         -webkit-box-align: center;
         align-items: center;
         background-color: #222;
-        // cursor: pointer;
+        // background-color: white;
+        cursor: pointer;
         display: flex;
         flex-wrap: wrap;
         -webkit-box-pack: center;
@@ -62,12 +63,6 @@
         box-sizing: border-box;
         input {
           display: none;
-        }
-        .images-file-icon1 {
-          fill: rgb(34, 34, 34);
-          height: 24px;
-          margin-bottom: 8px;
-          width: 24px;
         }
         .images-file-icon1 {
           fill: rgb(34, 34, 34);
