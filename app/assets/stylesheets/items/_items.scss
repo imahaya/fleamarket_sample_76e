@@ -307,7 +307,7 @@
         margin-top: 16px;
         &__fee {
           position: relative;
-          .delivery-fee {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -347,7 +347,7 @@
         margin-top: 16px;
         &__area {
           position: relative;
-          .delivery-area {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -387,7 +387,7 @@
         margin-top: 16px;
         &__days {
           position: relative;
-          .delivery-days {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
