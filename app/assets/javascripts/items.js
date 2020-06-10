@@ -1,10 +1,11 @@
 $(document).on('turbolinks:load', ()=> {
   // 画像用のinputを生成する関数
   const buildFileField = (index)=> {
-    const html = `<div class="js-file_group" data-index="0">
-                    <input class="hidden" type="file" 
-                    name="item[images_attributes][0][image]" 
-                    id="item_images_attributes_0_image">
+    const html = `<div data-index="${index}" class="js-file_group">
+                    <input class="js-file" type="file"
+                    name="item[images_attributes][${index}][image]"
+                    id="item_images_attributes_${index}_image"><br>
+                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
@@ -26,3 +27,4 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 });
+// console.log("Hello");

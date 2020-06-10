@@ -5,16 +5,14 @@
         .items-main__images__texts__text1 出品画像
         .items-main__images__texts__text2 必須
       .items-main__images__text3 最大10枚までアップロードできます
-      %label
+      = form_for @item do |form|
         #image-box
-          = form.fields_for :images do |image| 
+          = form.fields_for :images do |image|
             .js-file_group{"data-index" => "#{image.index}"}
-              = image.file_field :image, class: "hidden"
-          = link_to image_tag("icon_camera.png", class:"images-file-icon1")
-          %p.images-form-texts
-            ドラッグアンドドロップ
-            %br>/
-            またはクリックしてファイルをアップロード
+              = image.file_field :image, class: 'js-file'
+              %br/
+              %span.js-remove 削除
+
     .items-main__introduction
       .items-main__introduction__texts
         .items-main__introduction__texts__text1 商品名
@@ -216,3 +214,17 @@
             %a.attention-text4{:href => "/jp/help_center/getting_started/report_counterfeit_goods/", :rel => "noopener noreferrer", :target => "_blank"}> 盗品物
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
             %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約に同意したことになります。
+
+
+ -# 元データ
+-# %label
+-#   #image-box
+-#     = form.fields_for :images do |image| 
+-#       .js-file_group{"data-index" => "#{image.index}"}
+-#         = image.file_field :image, class: "hidden"
+-#     = link_to image_tag("icon_camera.png", class:"images-file-icon1")
+-#     %p.images-form-texts
+-#       ドラッグアンドドロップ
+-#       %br>/
+-#       またはクリックしてファイルをアップロード
+-######### カリキュラム
