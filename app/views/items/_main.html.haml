@@ -6,7 +6,6 @@
         .items-main__images__texts__text2 必須
       .items-main__images__text3 最大10枚までアップロードできます
       #image-box
-        -# %label
         #image-upload
           #previews
             - if @item.persisted?
@@ -19,10 +18,10 @@
               %br/
             - if @item.persisted?
               = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
-          - if @item.persisted?
-            .js-file_group{"data-index" => "#{@item.images.count}"}
-              = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
-              .js-remove 削除
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: 'js-file'
+                .js-remove 削除
 
         -# %label
         -#   = file_field :image, class: "hidden"
