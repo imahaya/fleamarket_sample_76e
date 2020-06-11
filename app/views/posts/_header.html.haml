@@ -16,9 +16,19 @@
           = link_to "", class: "lists__left-brand" do
             ブランド
       %ul.lists__right
-        %li
-          = link_to login_index_path, class: "lists__right-login" do
-            ログイン
-        %li
-          = link_to new_user_registration_path, class: "lists__right-new" do
-            新規会員登録
+        - if user_signed_in?
+          %li
+            = link_to mypages_path, class: "lists__right-login" do
+              マイページ
+          %li
+            = link_to destroy_user_session_path, method: :delete, class: "lists__right-new" do
+              ログアウト
+        - else
+          %li
+            = link_to user_session_path, class: "lists__right-login" do
+              ログイン
+          %li
+            = link_to new_user_registration_path, class: "lists__right-new" do
+              新規会員登録
+
+    

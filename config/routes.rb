@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :signup, only: [:index]
   resources :purchases, only: [:index]
   resources :addresses, only: [:index]
+  resources :users, only: [:edit, :update]
 end
