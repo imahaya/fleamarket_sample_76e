@@ -1,6 +1,8 @@
-body img {
-  width: 100px !important;
+
+.data-index {
+  width: 100px;
 }
+
 .items-wrapper {
   background-color:  rgb(245, 245, 245);
   height: 100%;
@@ -48,11 +50,11 @@ body img {
         // display: flex;
     #image-upload {
           height: 150px;
-          width: auto;
+          width: 100%;
           align-content: center;
           -webkit-box-align: center;
           align-items: center;
-          background-color: #222;
+          background-color: rgb(245, 245, 245);
           cursor: pointer;
           display: flex;
           flex-wrap: wrap;
@@ -611,4 +613,16 @@ body img {
 
 input[type="file"]{
   display: none;
+}
+
+#previews {
+  display: flex;
+  margin-left:5px;
+  width: 100px;
+}
+
+.js-remove {
+  position: relative;
+  top: 100px;
+  right: 65px;
 }
