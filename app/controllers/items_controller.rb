@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, except: [:index, :new, :create]
+  
   def new
     @item = Item.new
     @item.images.new
@@ -18,9 +19,22 @@ class ItemsController < ApplicationController
     end
   end
 
+  def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
+  end
+
   private
+
   def item_params
-    params.require(:item).permit(:item_name,:introduction,:category_id, :consignor_area, :days, :delivery_fee, :condition, :user_id, :brand_id, :price, images_attributes: [:image])
+    params.require(:item).permit(:item_name,:introduction,:category_id, :consignor_area, :days, :delivery_fee, :condition, :user_id, :brand_id, :price, images_attributes: [:image, :_destroy, :id])
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
