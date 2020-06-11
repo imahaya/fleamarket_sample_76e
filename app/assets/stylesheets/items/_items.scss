@@ -1,3 +1,6 @@
+body img {
+  width: 100px !important;
+}
 .items-wrapper {
   background-color:  rgb(245, 245, 245);
   height: 100%;
@@ -41,41 +44,51 @@
         margin-top: 16px;
         margin-bottom: 16px;
       }
-      label {
-        height: 150px;
-        width: 100%;
-        align-content: center;
-        -webkit-box-align: center;
-        align-items: center;
-        background-color: #222;
-        // background-color: white;
-        cursor: pointer;
-        display: flex;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        justify-content: center;
-        position: relative;
-        border-width: 1px;
-        border-style: dashed;
-        border-color: rgb(204, 204, 204);
-        border-image: initial;
-        transition: all 0.5s ease-out 0s;
-        box-sizing: border-box;
-        input {
-          display: none;
+      #image-box {
+        // display: flex;
+    #image-upload {
+          height: 150px;
+          width: auto;
+          align-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          background-color: #222;
+          cursor: pointer;
+          display: flex;
+          flex-wrap: wrap;
+          -webkit-box-pack: center;
+          justify-content: center;
+          position: relative;
+          border-width: 1px;
+          border-style: dashed;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          transition: all 0.5s ease-out 0s;
+          box-sizing: border-box;
+          input {
+            display: none;
+          }
+          .images-file-icon1 {
+            fill: rgb(34, 34, 34);
+            height: 24px;
+            margin-bottom: 8px;
+            width: 24px;
+          }
+          .images-form-texts {
+            font-size: 12px;
+            line-height: 1.4em;
+            text-align: center;
+            width: 100%;
+            color: #ffffff;
+          }
         }
-        .images-file-icon1 {
-          fill: rgb(34, 34, 34);
-          height: 24px;
-          margin-bottom: 8px;
-          width: 24px;
-        }
-        .images-form-texts {
-          font-size: 12px;
-          line-height: 1.4em;
-          text-align: center;
-          width: 100%;
-          color: #ffffff;
+        #image-box {
+          #preview {
+            display: flex;
+            .js-file_group {
+            
+            }
+          }
         }
       }
     }
@@ -594,4 +607,8 @@
   align-items: center;
   display: block;
   margin: auto;
+}
+
+input[type="file"]{
+  display: none;
 }
