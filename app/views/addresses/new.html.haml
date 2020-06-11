@@ -1,0 +1,103 @@
+%body 
+  %header.addresses__header
+    = link_to image_tag("logo.png", class:"addresses__header__title-img"), "/"
+  .addresses__main
+    .addresses__main__panel
+      .addresses-head
+        発送元・お届け先住所入力
+      .addresses-contents
+        .addresses-contents__form
+          .addresses-contents__form-input
+            = form_with model: @address do |form|
+              .form-group1
+                %label お名前
+                %span.form-require 必須
+                = form.text_field :shopping_family_name, placeholder: "例) 今泉"
+                -#%input.input-default{:name => "family_name", :placeholder => "例) 今泉", :type => "text", :value => ""}/
+                %input.input-default{:name => "first_name", :placeholder => "例) 隼人", :type => "text", :value => ""}/
+              .form-group2
+                %label お名前かな
+                %span.form-require 必須
+                %input.input-default{:name => "family_name_kana", :placeholder => "例) いまいずみ", :type => "text", :value => ""}/
+                %input.input-default{:name => "first_name_kana", :placeholder => "例) はやと", :type => "text", :value => ""}/
+              .form-group3
+                %label 郵便番号
+                %span.form-require 必須
+                %input.input-default{"data-region" => "jp", :maxlength => "8", :name => "zip_code1", :pattern => "\\d{3}-\\d{4}", :placeholder => "例) 123-4567", :type => "text", :value => ""}/
+              .form-group4
+                %label 都道府県
+                %span.form-require 必須
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  = form.select :prefecture_code, class:"" do
+                    %option{:value => "北海道"} 北海道
+                    %option{:value => "青森県"} 青森県
+                    %option{:value => "岩手県"} 岩手県
+                    %option{:value => "宮城県"} 宮城県
+                    %option{:value => "秋田県"} 秋田県
+                    %option{:value => "山形県"} 山形県
+                    %option{:value => "福島県"} 福島県
+                    %option{:value => "茨城県"} 茨城県
+                    %option{:value => "栃木県"} 栃木県
+                    %option{:value => "群馬県"} 群馬県
+                    %option{:value => "埼玉県"} 埼玉県
+                    %option{:value => "千葉県"} 千葉県
+                    %option{:value => "東京都"} 東京都
+                    %option{:value => "神奈川県"} 神奈川県
+                    %option{:value => "新潟県"} 新潟県
+                    %option{:value => "富山県"} 富山県
+                    %option{:value => "石川県"} 石川県
+                    %option{:value => "福井県"} 福井県
+                    %option{:value => "山梨県"} 山梨県
+                    %option{:value => "長野県"} 長野県
+                    %option{:value => "岐阜県"} 岐阜県
+                    %option{:value => "静岡県"} 静岡県
+                    %option{:value => "愛知県"} 愛知県
+                    %option{:value => "三重県"} 三重県
+                    %option{:value => "滋賀県"} 滋賀県
+                    %option{:value => "京都府"} 京都府
+                    %option{:value => "大阪府"} 大阪府
+                    %option{:value => "兵庫県"} 兵庫県
+                    %option{:value => "奈良県"} 奈良県
+                    %option{:value => "和歌山県"} 和歌山県
+                    %option{:value => "鳥取県"} 鳥取県
+                    %option{:value => "島根県"} 島根県
+                    %option{:value => "岡山県"} 岡山県
+                    %option{:value => "広島県"} 広島県
+                    %option{:value => "山口県"} 山口県
+                    %option{:value => "徳島県"} 徳島県
+                    %option{:value => "香川県"} 香川県
+                    %option{:value => "愛媛県"} 愛媛県
+                    %option{:value => "高知県"} 高知県
+                    %option{:value => "福岡県"} 福岡県
+                    %option{:value => "佐賀県"} 佐賀県
+                    %option{:value => "長崎県"} 長崎県
+                    %option{:value => "熊本県"} 熊本県
+                    %option{:value => "大分県"} 大分県
+                    %option{:value => "宮崎県"} 宮崎県
+                    %option{:value => "鹿児島県"} 鹿児島県
+                    %option{:value => "沖縄県"} 沖縄県
+                    %option{:value => "未定"} 未定           
+              .form-group5
+                %label 市区町村
+                %span.form-require 必須
+                %input.input-default{:name => "city", :placeholder => "例) 名古屋市中区", :type => "text", :value => ""}/
+              .form-group6
+                %label{:for => "address1_label"} 番地
+                %span.form-require 必須
+                %input.input-default{:name => "address1", :placeholder => "例) 大須3丁目6-18", :type => "text", :value => ""}/
+              .form-group7
+                %label{:for => "address2_label"} 建物名
+                %span.form-arbitrary 任意
+                %input.input-default{:name => "address2", :placeholder => "例) フォンティスビル7階", :type => "text", :value => ""}/
+              .form-group8
+                %label{:for => "address2_label"} 電話
+                %span.form-arbitrary 任意
+                %input.input-default{:name => "telephone", :placeholder => "例) 09012345678", :value => ""}/
+              = form.submit :登録する, class: "btn-default"
+  %footer.addresses__footer
+    %ul.addresses-nuv
+      %li プライバシーポリシー
+      %li フリマ利用規約
+      %li 特定商取引に関する表記
+    = link_to image_tag("logo-white.png", class:"addresses__footer__title-img"), "/"
