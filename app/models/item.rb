@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  enum days:{
+  enum day:{
     "選択してください": 0,
     "1~2日で発送": 1,
     "2~3日で発送": 2,
