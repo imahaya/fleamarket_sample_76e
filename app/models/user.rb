@@ -6,8 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
   validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/}
   validates :first_name, presence: true, format: { with: /\A[一-龥]+\z/}
   validates :family_name_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/}
@@ -20,5 +19,5 @@ class User < ApplicationRecord
   has_many :cards
   has_many :sellers
   has_many :buyers
-  belongs_to :address
+  has_one :address
 end
