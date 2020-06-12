@@ -80,15 +80,7 @@
           .items-main__details__select__texts3__text6 商品の状態
           .items-main__details__select__texts3__text7 必須
         .items-main__details__select__condition
-          -# = form.select :condition, class: "" do
-          = form.select :condition,Item.conditions.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
-            -# %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
-            -# %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
-            -# %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
-            -# %option{"aria-selected" => "false", :label => "目立った傷や汚れなし", :value => "3"} 目立った傷や汚れなし
-            -# %option{"aria-selected" => "false", :label => "やや傷や汚れあり", :value => "4"} やや傷や汚れあり
-            -# %option{"aria-selected" => "false", :label => "傷や汚れあり", :value => "5"} 傷や汚れあり
-            -# %option{"aria-selected" => "false", :label => "全体的に状態が悪い", :value => "6"} 全体的に状態が悪い
+          = form.select :condition,Item.conditions.keys,{prompt:"選択してください"}, {class:"select--wrap__default"} 
           %svg.details-condition-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
             %path.detals-condition-category{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
     .items-main__delivery
