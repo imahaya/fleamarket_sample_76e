@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :condition, null:false, default: 0
       t.references :category#, null:false, foreign_key:true
       t.references :user#, null:false, foreign_key:true
-      t.references :brand#, foreign_key:true
+      t.string :brand
       t.timestamps
     end
   end

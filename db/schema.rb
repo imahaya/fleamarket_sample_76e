@@ -74,10 +74,9 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.integer "condition", default: 0, null: false
     t.bigint "category_id"
     t.bigint "user_id"
-    t.bigint "brand_id"
+    t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
