@@ -16,12 +16,11 @@
 
 .addresses__main{
   width: 1440px;
-  height: 1133px;
   background-color: whitesmoke;
 
   &__panel{
     width: 700px;
-    height: 1133px;
+    height: 1180px;
     margin: 0 370px;
     background-color: white;
 
@@ -52,7 +51,8 @@
 
           .form-group1{
             width: 343px;
-            height: 126px;
+            // height: 126px;
+            padding-bottom: 30px;
 
             input{
               width: 309px;
@@ -61,40 +61,19 @@
               margin-top: 8px;
               border: 1px solid #cccccc;
             }
+            .form-arbitrary{
+              font-size: 15px;
+              padding: 2px 4px;
+              margin-left: 8px;
+              color: white;
+              background: #cccccc;
+            }
           }
 
           .form-group2{
             width: 343px;
-            height: 126px;
-            margin-top: 35px;
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-            }
-          }
-
-          .form-group3{
-            width: 343px;
             height: 70px;
-            margin-top: 30px;
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-            }
-          }
-
-          .form-group4{
-            width: 343px;
-            height: 70px;
-            margin-top: 35px;
+            margin-bottom: 35px;
 
             select {
               width: 343px;
@@ -109,84 +88,10 @@
               }
             }
           }
-
-          .form-group5{
-            width: 343px;
-            height: 70px;
-            margin-top: 35px;
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-            }
-          }
-
-          .form-group6{
-            width: 343px;
-            height: 70px;
-            margin-top: 35px;
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-            }
-          }
-
-          .form-group7{
-            width: 343px;
-            height: 70px;
-            margin-top: 30px;
-
-            .form-arbitrary{
-              font-size: 15px;
-              padding: 2px 4px;
-              margin-left: 8px;
-              color: white;
-              background: #cccccc;
-            }
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-            }
-          }
-
-          .form-group8{
-            width: 343px;
-            height: 70px;
-            margin-top: 35px;
-
-            .form-arbitrary{
-              font-size: 15px;
-              padding: 2px 4px;
-              margin-left: 8px;
-              color: white;
-              background: #cccccc;
-            }
-
-            .input-default{
-              width: 309px;
-              height: 28px;
-              padding:  10px 16px 8px 16px;
-              margin-top: 8px;
-              border: 1px solid #cccccc;
-              
-            }
-          }
-
           .btn-default{
             width: 341px;
             height: 48px;
-            margin-top: 40px;
+            margin-bottom: 30px;
             background: #ea352d;
             border: 1px solid #ea352d;
             color: white;
