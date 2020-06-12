@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @product.update(product_params)
+    if @item.update(item_params)
       redirect_to root_path
     else
       render :edit
