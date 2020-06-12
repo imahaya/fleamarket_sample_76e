@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :delivery
+  enum days:{
+    "1~2日で発送": 0,
+    "2~3日で発送": 1,
+    "4~7日で発送": 2
+  }
   belongs_to :user,required: false
   belongs_to :category,required: false
   belongs_to :brand,required: false
