@@ -20,5 +20,5 @@ class User < ApplicationRecord
   has_many :cards
   has_many :sellers
   has_many :buyers
-  # belongs_to :address
+  belongs_to :address
 end
