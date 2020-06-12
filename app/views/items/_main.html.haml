@@ -75,19 +75,20 @@
           .items-main__details__select__texts2__text4 ブランド
           .items-main__details__select__texts2__text5 任意
         .items-main__details__select__brand
-          = form.text_field :brand_id, class: "brandname-input",placeholder: "例）シャネル"
+          = form.text_field :brands_id, class: "brandname-input",placeholder: "例）シャネル"
         .items-main__details__select__texts3
           .items-main__details__select__texts3__text6 商品の状態
           .items-main__details__select__texts3__text7 必須
         .items-main__details__select__condition
-          = form.select :condition, class: "" do
-            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
-            %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
-            %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
-            %option{"aria-selected" => "false", :label => "目立った傷や汚れなし", :value => "3"} 目立った傷や汚れなし
-            %option{"aria-selected" => "false", :label => "やや傷や汚れあり", :value => "4"} やや傷や汚れあり
-            %option{"aria-selected" => "false", :label => "傷や汚れあり", :value => "5"} 傷や汚れあり
-            %option{"aria-selected" => "false", :label => "全体的に状態が悪い", :value => "6"} 全体的に状態が悪い
+          -# = form.select :condition, class: "" do
+          = form.select :condition,Item.conditions.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
+            -# %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+            -# %option{"aria-selected" => "false", :label => "新品、未使用", :value => "1"} 新品、未使用
+            -# %option{"aria-selected" => "false", :label => "未使用に近い", :value => "2"} 未使用に近い
+            -# %option{"aria-selected" => "false", :label => "目立った傷や汚れなし", :value => "3"} 目立った傷や汚れなし
+            -# %option{"aria-selected" => "false", :label => "やや傷や汚れあり", :value => "4"} やや傷や汚れあり
+            -# %option{"aria-selected" => "false", :label => "傷や汚れあり", :value => "5"} 傷や汚れあり
+            -# %option{"aria-selected" => "false", :label => "全体的に状態が悪い", :value => "6"} 全体的に状態が悪い
           %svg.details-condition-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
             %path.detals-condition-category{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
     .items-main__delivery
@@ -104,10 +105,11 @@
         .items-main__delivery__texts2__text3 必須
       .items-main__delivery__select
         .items-main__delivery__select__fee
-          = form.select :delivery_fee, class: "" do
-            %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
-            %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
-            %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)
+          -# = form.select :delivery_fee, class: "" do
+          = form.select :delivery_fee,Item.delivery_fees.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
+          -#   %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
+          -#   %option{"aria-selected" => "false", :label => "送料込み(出品者負担)", :value => "2"} 送料込み(出品者負担)
+          -#   %option{"aria-selected" => "false", :label => "着払い(購入者負担)", :value => "1"} 着払い(購入者負担)
           %svg.delivery-fee-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
             %path{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
       .items-main__delivery__texts3
@@ -125,7 +127,7 @@
         .items-main__delivery__select3__days
           -# = form.collection_select(:delivery_id, Delivery.all, :id, :name, prompt: "---")
           -# = form.collection_select :delivery_id, Delivery.all, :id, :value, { prompt: '選択してください' }
-          = form.select :day,Item.days.keys,{prompt:"---"}, {class:"select--wrap__default"}
+          = form.select :day,Item.days.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
           -#   %option{"aria-selected" => "true", :label => "選択してください", :selected => "selected", :value => ""} 選択してください
           -#   %option{"aria-selected" => "false", :label => "1~2日で発送", :value => "1"} 1~2日で発送
           -#   %option{"aria-selected" => "false", :label => "2~3日で発送", :value => "2"} 2~3日で発送
