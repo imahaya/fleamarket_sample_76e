@@ -23,8 +23,10 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.string "address", null: false
     t.string "buildingname"
     t.bigint "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,9 +114,7 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["address_id_id"], name: "index_users_on_address_id_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["phone_number"], name: "index_users_on_phone_number", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
 end
