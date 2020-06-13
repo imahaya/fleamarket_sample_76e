@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   resources :posts, only: [:index,:show]
   resources :items, only: [:index]
   resources :mypages, only: [:index]
-  resources :login, only: [:index]
-  resources :signup, only: [:index]
   resources :purchases, only: [:index]
   resources :addresses, only: [:new, :create]
   resources :users, only: [:edit, :update]
