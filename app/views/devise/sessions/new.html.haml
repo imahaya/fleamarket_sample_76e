@@ -5,7 +5,7 @@
     .login__main__panel
       .login__main__no-account
         %p.list-text1 アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録", signup_index_path, class: "signup__button"
+        = link_to "新規会員登録", new_user_registration_path, class: "signup__button"
       .form-inner
         %i.fab.fa-google.fa-lg.btn-black
         = link_to " googleでログイン", "/" , class: "google--btn"
@@ -13,10 +13,15 @@
         = link_to "Facebookでログイン", "/" , class: "facebook--btn"
         %i.fab.fa-apple.fa-lg.btn-white2
         = link_to "appleでログイン", "/" , class: "apple--btn"
-      .form-group
-        %input.form-group__email{name: "email", placeholder: "メールアドレス", type: "email", value: ""}/
-        %input.form-group__pass{name: "password", placeholder: "パスワード", type: "password"}/
-        %input.form-group__btn{type: "submit", value: "ログイン"}/
+        .form-group
+          = form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f|
+            .field
+              .form-group__email
+                = f.email_field :email, autofocus: true, placeholder: "メールアドレス"
+              .field
+                .form-group__pass
+                  = f.password_field :password, autocomplete: "off",placeholder: "パスワード"
+                = f.submit "Log in", class: 'btn'
   %footer.login-footer
     %ul.login-nuv
       %li プライバシーポリシー

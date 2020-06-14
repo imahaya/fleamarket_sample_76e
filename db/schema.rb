@@ -21,8 +21,12 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
+    t.string "buildingname"
+    t.bigint "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -90,9 +94,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
+    t.string "name", null: false
     t.string "email", default: "", null: false
-    t.string "password", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
@@ -115,4 +118,5 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
   end
 
   add_foreign_key "images", "items"
+  add_foreign_key "addresses", "users"
 end
