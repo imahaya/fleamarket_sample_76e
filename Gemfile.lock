@@ -324,9 +324,9 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  fog-aws
   devise-i18n
   devise-i18n-views
+  fog-aws
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
