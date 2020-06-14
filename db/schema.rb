@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.date "birthday", null: false
     t.string "user_image"
     t.text "introduction"
-    t.bigint "address_id", null: false
-    t.integer "phone_number", null: false
+    t.bigint "address_id"
+    t.bigint "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -117,6 +117,6 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "images", "items"
   add_foreign_key "addresses", "users"
+  add_foreign_key "images", "items"
 end
