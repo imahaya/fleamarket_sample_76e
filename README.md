@@ -50,10 +50,15 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|shopping_family_name|string|null: false|
+|shopping_first_name|string|null: false|
+|shopping_family_name_kana|string|null: false|
+|shopping_first_name_kana|string|null: false|
 |post_code|integer(7)|null: false|
-|prefecture_code|integer|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
+|phone_number|integer|null: false,unique: true|
 ### Association
 - belongs_to :user
 - belongs_to :seller

@@ -1,3 +1,8 @@
+
+.data-index {
+  width: 100px;
+}
+
 .items-wrapper {
   background-color:  rgb(245, 245, 245);
   height: 100%;
@@ -41,46 +46,49 @@
         margin-top: 16px;
         margin-bottom: 16px;
       }
-      label {
-        height: 150px;
-        width: 100%;
-        align-content: center;
-        -webkit-box-align: center;
-        align-items: center;
-        background-color: #222;
-        // cursor: pointer;
-        display: flex;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        justify-content: center;
-        position: relative;
-        border-width: 1px;
-        border-style: dashed;
-        border-color: rgb(204, 204, 204);
-        border-image: initial;
-        transition: all 0.5s ease-out 0s;
-        box-sizing: border-box;
-        input {
-          display: none;
-        }
-        .images-file-icon1 {
-          fill: rgb(34, 34, 34);
-          height: 24px;
-          margin-bottom: 8px;
-          width: 24px;
-        }
-        .images-file-icon1 {
-          fill: rgb(34, 34, 34);
-          height: 24px;
-          margin-bottom: 8px;
-          width: 24px;
-        }
-        .images-form-texts {
-          font-size: 12px;
-          line-height: 1.4em;
-          text-align: center;
+      #image-box {
+    #image-upload {
+          height: 150px;
           width: 100%;
-          color: #ffffff;
+          align-content: center;
+          -webkit-box-align: center;
+          align-items: center;
+          background-color: rgb(245, 245, 245);
+          cursor: pointer;
+          flex-wrap: wrap;
+          -webkit-box-pack: center;
+          justify-content: center;
+          position: relative;
+          border-width: 1px;
+          border-style: dashed;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          transition: all 0.5s ease-out 0s;
+          box-sizing: border-box;
+          input {
+            display: none;
+          }
+          .images-file-icon1 {
+            fill: rgb(34, 34, 34);
+            height: 24px;
+            margin-bottom: 8px;
+            width: 24px;
+          }
+          .images-form-texts {
+            font-size: 12px;
+            line-height: 1.4em;
+            text-align: center;
+            width: 100%;
+            color: #ffffff;
+          }
+        }
+        #image-box {
+          #preview {
+            display: flex;
+            .js-file_group {
+            
+            }
+          }
         }
       }
     }
@@ -107,7 +115,7 @@
       }
       &__name {
         margin-top: 16px;
-        .namebox-input {
+          input {
           height: 48px;
           width: 602px;
           padding-left: 16px;
@@ -132,7 +140,7 @@
       }
       &__form {
         margin-top: 16px;
-        .introduction-input {
+        textarea {
           padding-top: 16px;
           height: 200px;
           width: 602px;
@@ -178,7 +186,7 @@
         margin-top: 16px;
         &__category {
           position: relative;
-          .details-category {
+          select {
             background-color: #fff;
             width: 620px;
             color: #222;
@@ -242,7 +250,7 @@
         }
         &__condition {
           position: relative;
-          .details-condition {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -290,11 +298,9 @@
       &__texts2 {
         display: flex;
         &__text2 {
-          // margin-top: 32px;
           font-size: 14px;
           font-weight: 600;
           padding-right: 8px;
-          // margin-bottom: 16px;
         }
         &__text3 {
           background-color: #ff0211;
@@ -307,7 +313,7 @@
         margin-top: 16px;
         &__fee {
           position: relative;
-          .delivery-fee {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -347,7 +353,7 @@
         margin-top: 16px;
         &__area {
           position: relative;
-          .delivery-area {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -387,7 +393,7 @@
         margin-top: 16px;
         &__days {
           position: relative;
-          .delivery-days {
+          select {
             background-color: #fff;
             width: 100%;
             color: #222;
@@ -429,7 +435,6 @@
         width: 16px;
       }
       &__prices {
-        // margin-bottom: 40px;
         &__form {
           -webkit-box-align: center;
           align-items: center;
@@ -467,7 +472,7 @@
             display: inline-flex;
             width: 100%;
             &__inputarea {
-              .numbers__inputarea {
+              input {
                 height: 44px;
                 border: 1px solid #ccc;
                 border-radius: 4px;
@@ -582,7 +587,6 @@
   background-color: whitesmoke;
 }
 .items-nuv {
-  // display: flex;
   margin-bottom: 50px;
   text-align: center;
 }
@@ -593,10 +597,30 @@
     color: black;
 }
 .itemsFooter__title-img {
-  // background-color: red;
   height: 50px;
   width: 150px;
   align-items: center;
   display: block;
   margin: auto;
 }
+
+input[type="file"]{
+  display: none;
+}
+
+#previews {
+  display: flex;
+  align-items: left;
+  .test {
+    margin-left: 15px;
+    margin-top: 20px;
+  }
+  img {
+    width: 100px;
+    .js-remove {
+      
+    }
+  }
+}
+
+  
