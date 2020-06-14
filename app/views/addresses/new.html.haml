@@ -1,0 +1,62 @@
+%body 
+  %header.addresses__header
+    = link_to image_tag("logo.png", class:"addresses__header__title-img"), "/"
+  .addresses__main
+    .addresses__main__panel
+      .addresses-head
+        発送元・お届け先住所入力
+      .addresses-contents
+        .addresses-contents__form
+          .addresses-contents__form-input
+            = form_with model: @address do |f|
+              .form-group1
+                %label お名前
+                %span.form-require 必須
+                = f.text_field :shopping_family_name, autofocus: "true", placeholder: "例)フリマ"
+                = f.text_field :shopping_first_name, autofocus: "true", placeholder: "例)太郎"
+              .form-group1
+                %label お名前かな
+                %span.form-require 必須
+                = f.text_field :shopping_family_name_kana, autofocus: "true", placeholder: "例)ふりま"
+                = f.text_field :shopping_first_name_kana, autofocus: "true", placeholder: "例)たろう"
+              
+              .form-group1
+                %label 郵便番号
+                %span.form-require 必須
+                = f.text_field :post_code, autofocus: "true", placeholder: "例) 123-4567"
+              
+              .form-group2
+                %label 都道府県
+                %span.form-require 必須
+                .select-wrap
+                  %i.icon-arrow-bottom
+                  = f.collection_select :prefecture_code, Prefecture.all, :id, :name 
+              
+              .form-group1
+                %label 市区町村
+                %span.form-require 必須
+                = f.text_field :city, autofocus: "true", placeholder: "例) 名古屋市中区"
+                
+              .form-group1
+                %label 番地
+                %span.form-require 必須
+                = f.text_field :address, autofocus: "true", placeholder: "例) 大須3丁目6-18"
+
+              .form-group1
+                %label 建物名
+                %span.form-arbitrary 任意
+                = f.text_field :buildingname, autofocus: "true", placeholder: "例) フォンティスビル7階"
+
+              .form-group1
+                %label 電話
+                %span.form-arbitrary 任意
+                = f.telephone_field :phone_number, autofocus: "true", placeholder: "例) 09012345678"
+
+              = f.submit :登録する, class: "btn-default"
+              
+  %footer.addresses__footer
+    %ul.addresses-nuv
+      %li プライバシーポリシー
+      %li フリマ利用規約
+      %li 特定商取引に関する表記
+    = link_to image_tag("logo-white.png", class:"addresses__footer__title-img"), "/"

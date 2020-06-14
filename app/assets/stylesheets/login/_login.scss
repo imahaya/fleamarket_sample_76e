@@ -126,19 +126,26 @@ a, a:visited, a:focus, a:hover {
 }
 
 .form-group {
-  padding: 24px 64px 32px;
-  // background-color: gray;
+  padding-top: 20px;
+  text-align: center;
   &__email {
     width: 100%;
     margin-bottom: 20px;
-    height: 38px;
+    input {
+      width: 320px;
+      height: 38px;
+    }
   }
   &__pass {
     width: 100%;
     margin-bottom: 50px;
-    height: 38px;
+    input {
+      width: 320px;
+      height: 38px;
+    }
   }
-  &__btn {
+  .btn {
+    width: 320px;
     background: #ea352d;
     border: 1px solid #ea352d;
     color: #fff;

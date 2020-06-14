@@ -4,9 +4,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       # Database authenticatable
-      t.string :nickname,                 null: false
+      t.string :name,                 null: false
       t.string :email,                    null: false, default: ""
-      t.string :password,                 null: false
       t.string :family_name,              null: false
       t.string :first_name,               null: false
       t.string :family_name_kana,         null: false
@@ -14,8 +13,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.date :birthday,                   null: false
       t.string :user_image
       t.text :introduction
-      t.references :address_id, null: false, foreign_key:true
-      t.integer :phone_number,            null: false
+      t.references :address_id
+      t.integer :phone_number,limit: 8,           null: false
       t.string :encrypted_password,       null: false, default: ""
 
       ## Recoverable

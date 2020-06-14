@@ -13,12 +13,20 @@
 ActiveRecord::Schema.define(version: 2020_06_09_014125) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "shopping_family_name", null: false
+    t.string "shopping_first_name", null: false
+    t.string "shopping_family_name_kana", null: false
+    t.string "shopping_first_name_kana", null: false
     t.integer "post_code", null: false
     t.integer "prefecture_code", null: false
     t.string "city", null: false
     t.string "address", null: false
+    t.string "buildingname"
+    t.bigint "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -68,8 +76,14 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.integer "days", null: false
     t.integer "delivery_fee", null: false
     t.integer "condition", null: false
+    t.bigint "category_id_id", null: false
+    t.bigint "user_id_id", null: false
+    t.bigint "brand_id_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
+    t.index ["category_id_id"], name: "index_items_on_category_id_id"
+    t.index ["user_id_id"], name: "index_items_on_user_id_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,9 +96,8 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
+    t.string "name", null: false
     t.string "email", default: "", null: false
-    t.string "password", null: false
     t.string "family_name", null: false
     t.string "first_name", null: false
     t.string "family_name_kana", null: false
@@ -92,13 +105,16 @@ ActiveRecord::Schema.define(version: 2020_06_09_014125) do
     t.date "birthday", null: false
     t.string "user_image"
     t.text "introduction"
-    t.integer "phone_number", null: false
+    t.bigint "address_id_id"
+    t.bigint "phone_number", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["address_id_id"], name: "index_users_on_address_id_id"
   end
 
+  add_foreign_key "addresses", "users"
 end
