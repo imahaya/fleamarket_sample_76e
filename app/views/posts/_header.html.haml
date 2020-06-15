@@ -12,14 +12,14 @@
         %li
           = link_to "", class: "lists__left-category" do
             カテゴリー
-          - @parents.each do |parent|
-            =parent.name
-            -# .child
-            -#   - parent.children.each do |child|
-            -#     =child.name
-            -#     .grandchild
-            -#       - child.children.each do |grandchild|
-            -#         =grandchild.name
+          -# - @parents.each do |parent|
+          -#   =parent.name
+          -#   .child
+          -#     - parent.children.each do |child|
+          -#       =child.name
+          -#       .grandchild
+          -#         - child.children.each do |grandchild|
+          -#           =grandchild.name
         %li.lists__left-brand
           = link_to "", class: "lists__left-brand" do
             ブランド
