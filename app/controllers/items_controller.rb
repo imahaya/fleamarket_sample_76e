@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create]
+
+
+  def index
+    redirect_to new_item_path
+  end
   
   def new
     @item = Item.new

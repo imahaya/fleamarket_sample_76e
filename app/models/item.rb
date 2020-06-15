@@ -13,7 +13,7 @@ class Item < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  validates :item_name, :prefecture_id, :price, :day,:delivery_fee, :condition, :category, presence: true
+  validates :images, :item_name, :prefecture_id, :price, :day,:delivery_fee, :condition, :category, presence: true
 
   validates :introduction, presence: true, length: { maximum: 1000 }
 
