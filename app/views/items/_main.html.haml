@@ -1,5 +1,6 @@
 .items-main
   = form_with model: @item do |form|
+    = render 'layouts/error_messages', model: form.object
     .items-main__images
       .items-main__images__texts
         .items-main__images__texts__text1 出品画像
