@@ -48,19 +48,9 @@ header {
       display: flex;
       width: 180px;
       justify-content: space-between;
-      z-index: 1;
       &-category{
         text-decoration: none;
         color: black;
-        .parent {
-          background-color: red;
-          .child {
-            background-color: green;
-          }
-          .grandchild {
-            background-color: blue;
-          }
-        }
       }
       &-brand{
         text-decoration: none;
