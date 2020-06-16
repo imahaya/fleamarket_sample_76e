@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
 
   def index
-    @parents = Category.all.order("id ASC").limit(20)
+    @items = Item.all.order("created_at DESC").limit(3)
+    @images = Image.all.order("created_at DESC").limit(3)
   end
 
-  def show
-  end
+  
   
 end
