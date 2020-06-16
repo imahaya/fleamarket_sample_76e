@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :purchases, only: [:index]
   resources :addresses, only: [:new, :create]
   resources :users, only: [:edit, :update]
-  resources :users, only: [:new, :show, :edit, :update, :destroy] 
+  resources :cards, only: [:new, :show, :edit, :update, :destroy]
 end
