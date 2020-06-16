@@ -49,15 +49,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
-
-    begin
-      raise Hoge
-    rescue => e
-      p e
+    if @item.destroy
+      redirect_to root_path
+    else
+      render 
     end
-    
+
   end
 
 
