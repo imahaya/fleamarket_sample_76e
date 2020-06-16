@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :destroy]
   before_action :set_parents, only: [:new, :create]
 
 
@@ -49,9 +49,15 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to root_path
+
+    begin
+      raise Hoge
+    rescue => e
+      p e
+    end
+    
   end
 
 
