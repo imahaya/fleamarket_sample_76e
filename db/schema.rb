@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_134223) do
     t.integer "day", default: 0, null: false
     t.integer "delivery_fee", default: 0, null: false
     t.integer "condition", default: 0, null: false
-    t.integer "category", null: false
+    t.integer "category_id", null: false
     t.bigint "user_id"
     t.string "brand"
     t.datetime "created_at", null: false

@@ -51,9 +51,9 @@
             = link_to mypages_path, class: "item-btn_edit" do
               商品の編集
           %li
-            = link_to destroy_user_session_path, method: :delete, class: "item-btn_delete" do
-              この商品を削除する   
-        -else 
+            = link_to item_path(@item.id), method: :delete, class: "item-btn_delete" do
+              この商品を削除する
+        -else
           %li
             = link_to user_session_path, class: "item-btn_buy" do
               購入画面に進む
@@ -69,7 +69,10 @@
             %tr
               %th カテゴリー
               %td
-                = link_to @item.category
+                = @parent.name
+                = @grandchild.name
+                = @child.name
+             
                 %br/
             %tr
               %th ブランド
