@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
 
   def show
     @item.prefecture
+    @item = Item.find(params[:id])
+    @grandchild = Category.find(@item.category_id)
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
   
   def search
