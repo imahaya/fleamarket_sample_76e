@@ -5,6 +5,11 @@ class ItemsController < ApplicationController
   def index
     redirect_to new_item_path
   end
+
+  def show
+    @item = Item.find(params[:id])
+    @prefecture = Prefecture.find(@item.prefecture_id)
+  end
   
   def new
     @item = Item.new

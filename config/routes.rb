@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'   
   } 
   root "posts#index"
-  resources :posts, only: [:index,:show]
-  resources :items, only: [:index,:new,:create]
+  resources :posts, only: [:index]
+  resources :items, only: [:index,:new,:create,:show]
   resources :mypages, only: [:index]
   resources :purchases, only: [:index]
   resources :addresses, only: [:new, :create]

@@ -1,4 +1,4 @@
-= render partial: "header"
+= render partial: "posts/header"
 .navbar
   %ul
     %li
@@ -18,63 +18,84 @@
     %li
       %i.fa.fa-angle-right
     %li
-      %p product3
+      %p 
+        =@item.item_name
 .body
   .item
     .item__list
-      %h1.item__list-title Product3
+      %h1.item__list-title 
+        =@item.item_name
       .item-box
-        = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+        = image_tag image.image_url, size: "300x300"
         %ul.item-detail
-          %li
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          %li
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          %li
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
+          - @item.images.each do |image|
+            %li
+              = image_tag image.image_url, size: "147x147"
+            %li
+              = image_tag image.image_url, size: "147x147"
+            %li
+              = image_tag image.image_url, size: "147x147"
       .item-price
         %span
-          ¥30000
+          =@item.price
         .item-price__detail
           %span
             (税込)
           %span
             送料込み
-      .item-review 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+      %ul.item-btn
+        -if user_signed_in?
+          %li
+            = link_to mypages_path, class: "item-btn_edit" do
+              商品の編集
+          %li
+            = link_to destroy_user_session_path, method: :delete, class: "item-btn_delete" do
+              この商品を削除する   
+        -else 
+          %li
+            = link_to user_session_path, class: "item-btn_buy" do
+              購入画面に進む
+      .item-review 
+        =@item.introduction
       .table
         %table
           %tbody
             %tr
               %th 出品者
-              %td hoge
+              %td 
+                =User.find(@item.user_id).name
             %tr
               %th カテゴリー
               %td
-                = link_to 'ベビー・キッズ'
+                = link_to @item.category
                 %br/
-                = link_to 'ベビー服(男女兼用)  ~95cm'
-                %a{:href => "#"}
-                %br/
-                = link_to 'アウター'
+                -# = link_to 'ベビー服(男女兼用)  ~95cm'
+                -# %a{:href => "#"}
+                -# %br/
+                -# = link_to 'アウター'
             %tr
               %th ブランド
               %td
+                =@item.brand
             %tr
               %th 商品のサイズ
               %td
             %tr
               %th 商品の状態
-              %td 未使用に近い
+              %td 
+                =@item.condition
             %tr
               %th 配送料の負担
-              %td 送料込み（出品者負担）
+              %td 
+                =@item.delivery_fee
             %tr
               %th 発送元の地域
               %td
-                = link_to '岩手県'
+                = link_to @item.prefecture.name
             %tr
               %th 発送日の目安
-              %td 4-7日で発送
+              %td 
+                =@item.day
       .option
         %ul
           %li.option__left
@@ -109,4 +130,4 @@
       .banner-btn
         = link_to image_tag("download-on-app-store.png", class:"banner-btn__A")
         = link_to image_tag("download-on-google.png", class:"banner-btn__B")
-= render partial: "footer"
+= render partial: "posts/footer"

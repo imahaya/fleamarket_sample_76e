@@ -83,6 +83,45 @@
           margin-bottom: 20px;
         }
       }
+      .item-btn {
+        margin: 24px 0 24px 0;
+        background: #fff;
+        padding: 8px 16px 8px 16px;
+        li {
+          height: 50px;
+          width: 580px;
+        }
+        a {
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border-radius: 4px;
+          border: 1px solid transparent;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+        }
+        &_edit {
+          height: 100%;
+          width: 100%;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+        }
+        &_delete {
+          margin: 16px 0 16px 0;
+          background: #aaa;
+          border: 1px solid #aaa;
+          color: #fff;
+        }
+        &_buy {
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+        }
+      }
       .item-review {
         font-size: 18px;
         margin-bottom: 30px;
