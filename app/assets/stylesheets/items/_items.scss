@@ -271,6 +271,26 @@
       }
     }
   }
+  #category_field {
+    select {
+      background-color: #fff;
+      width: 620px;
+      color: #222;
+      font-size: 16px;
+      height: 48px;
+      padding-left: 16px;
+      border: 1px solid #ccc;
+      -webkit-appearance: none;
+    }
+    .details-category-select {
+      bottom: 0;
+      margin: auto;
+      pointer-events: none;
+      position: absolute;
+      right: 16px;
+      top: 0;
+    }
+  }
     &__delivery {
       background-color: #ffffff;
       height: 364px;

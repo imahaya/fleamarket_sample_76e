@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   } 
   root "posts#index"
   resources :posts, only: [:index]
-  resources :items, only: [:index,:new,:create,:show]
+  resources :items do
+    collection do
+      get :search
+    end
+  end
+
   resources :mypages, only: [:index]
   resources :purchases, only: [:index]
   resources :addresses, only: [:new, :create]

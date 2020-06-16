@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, except: [:index, :new, :create, :search]
+  before_action :set_parents, only: [:new, :create]
 
 
-  def index
-    redirect_to new_item_path
+  def set_parents
+    @parents = Category.where(ancestry: nil)
   end
 
   def show
@@ -11,6 +12,20 @@ class ItemsController < ApplicationController
     @prefecture = Prefecture.find(@item.prefecture_id)
   end
   
+  def search
+    #ajax通信を開始
+    respond_to do |format|
+      format.html
+      format.json do
+        if params[:parent_id]
+          @childrens = Category.find(params[:parent_id]).children
+        elsif params[:children_id]
+          @grandChilds = Category.find(params[:children_id]).children
+        end
+      end
+    end
+  end
+
   def new
     @item = Item.new
     @item.images.new
@@ -40,6 +55,7 @@ class ItemsController < ApplicationController
       redirect_to items_path
     end
   end
+
 
   private
 
