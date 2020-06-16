@@ -4,12 +4,13 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'   
   } 
   root "posts#index"
-  resources :posts, only: [:index,:show]
+  resources :posts, only: [:index]
   resources :items do
     collection do
       get :search
     end
   end
+
   resources :mypages, only: [:index]
   resources :purchases, only: [:index]
   resources :addresses, only: [:new, :create]

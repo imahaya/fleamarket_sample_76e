@@ -73,8 +73,7 @@
         - @items.each do |item|
           .product__list
             .product__list-img
-              - item.images.each do |image|
-                = image_tag("#{image.image}", width: '180', height: '180')
+              = link_to image_tag("#{item.images.first.image}", width: '180', height: '180'), item_path(item.id)
             .product__list__detail
               %h3.product__list__detail-name
                 = item.item_name
