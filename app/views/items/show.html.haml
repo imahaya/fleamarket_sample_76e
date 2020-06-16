@@ -48,7 +48,7 @@
             = link_to mypages_path, class: "item-btn_edit" do
               商品の編集
           %li
-            = link_to destroy_user_session_path, method: :delete, class: "item-btn_delete" do
+            = link_to "/items/#{@item.id}", method: :delete, class: "item-btn_delete" do
               この商品を削除する   
         -else 
           %li
