@@ -29,11 +29,14 @@
         = image_tag("#{@item.images.first.image}", size: "300x300")
         %ul.item-detail
           %li
-            = image_tag("#{@item.images.second.image}", size: "147x147")
+          -if @item.images.second
+            = image_tag(@item.images.second.image.to_s, size: "147x147")
           %li
-            = image_tag("#{@item.images.third.image}", size: "147x147")
+          -if @item.images.third
+            = image_tag(@item.images.third.image.to_s, size: "147x147")
           %li
-            = image_tag("#{@item.images.fourth.image}", size: "147x147")
+          -if @item.images.fourth
+            = image_tag(@item.images.fourth.image.to_s, size: "147x147")
       .item-price
         %span
           =@item.price
