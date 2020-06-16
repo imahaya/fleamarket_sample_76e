@@ -35,7 +35,6 @@ $(function(){
       .done(function(data) {
         $('.child_category_id').remove();
         $('.gc_category_id').remove();
-        // console.log(data)
         let child_select = build_childSelect
         $("#category_field").append(child_select);
         data.forEach(function(data){
@@ -44,7 +43,7 @@ $(function(){
         })
       })
       .fail (function() {
-        console.log("失敗");
+        alert("エラーです！");
       })
     }else{
       $('.child_category_id').remove();
@@ -71,7 +70,7 @@ $(function(){
           });
         })
         .fail(function () {
-          alert("gcで通信エラーです！");
+          alert("エラーです！");
         })
       }else{
         $('.gc_category_id').remove();
