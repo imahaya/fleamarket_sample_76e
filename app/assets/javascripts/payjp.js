@@ -1,5 +1,5 @@
-document.addEventListener(
-  "DOMContentLoaded", e => {
+$(document).on('turbolinks:load', function() {
+  $(function() {
     if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
       Payjp.setPublicKey("pk_test_3c2ba534e3647d9e15359745"); //ここに公開鍵を直書き
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
@@ -17,6 +17,7 @@ document.addEventListener(
             $("#cvc").removeAttr("name");
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name"); //データを自サーバにpostしないように削除
+            console.log(response.id)
             $("#card_token").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
@@ -28,6 +29,12 @@ document.addEventListener(
         });
       });
     }
-  },
-  false
-);
+  })
+
+  // document.addEventListener(
+  //   "DOMContentLoaded", e => {
+      
+  //   },
+  //   false
+  // );
+})
