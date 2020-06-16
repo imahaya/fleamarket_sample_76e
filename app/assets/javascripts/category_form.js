@@ -17,10 +17,19 @@ $(function(){
     return option_html;
   }
 
-  // 親セレクトを変更したらjQueryが発火する
-  $("#category_form").change(function (e) {
-    e.preventDefault();
-    // 選択した親の値を取得する
+  function build_gcSelect() {
+    let gc_select = `
+              <select name="item[category_id]" class="gc_category_id">
+              </select>
+              `
+    return gc_select;
+  }
+
+  // 親セレクトを変更したらjQueryが発火
+  $(document).on("change", "#category_form", function () {
+  // $("#category_form").change(function (e) {
+  //   e.preventDefault();
+    // 選択した親の値を取得
     let parentValue = $("#category_form").val();
     // 初期値("---")以外を選択したらajaxを開始
     if (parentValue.length != 0) {
@@ -46,24 +55,34 @@ $(function(){
     }
   });
 
-  // $("#category_form").change(function () {
-  //   $.ajax({
-  //     url: '/posts/search',
-  //     type: 'GET',
-  //     // postsコントローラーにparamsをchildren_idで送る
-  //     data: { child_id: childValue },
-  //     dataType: 'json'
-  //   })
-  // .done(function (data) {
-  //   let child_select = build_childSelect
-  //   $("#category_field").append(child_select);
-  //   data.forEach(function (d) {
-  //     let option_html = build_Option(d)
-  //     $(".child_category_id").append(option_html);
-  //   })
-  // })
-  // .fail(function () {
-  //   alert("通信エラーです！");
-  // })
-  // })
+  // 子セレクトを変更したらjQueryが発火
+  // $(".child_category_id").change(function () {
+    // e.preventDefault();
+  $(document).on("change", ".child_category_id", function () {
+    // 選択した子の値を取得
+    let childValue = $(".child_category_id").val();
+    // 初期値("---")以外を選択したらajax開始
+    if (childValue.length != 0) {
+      $.ajax({
+        url: '/items/search',
+        type: 'GET',
+        // postsコントローラーにparamsをchildren_idで送る
+        data: { children_id: childValue },
+        dataType: 'json'
+      })
+        .done(function (gc_data) {
+          // selectタグを生成してビューにappend
+          let gc_select = build_gcSelect
+          $("#category_field").append(gc_select);
+          // jbuilderから取得したデータを1件ずつoptionタグにappend
+          gc_data.forEach(function (gc_d) {
+            let option_html = build_Option(gc_d);
+            $(".gc_category_id").append(option_html);
+          });
+        })
+        .fail(function () {
+          alert("gcで通信エラーです！");
+        });
+    }
+  });
 })
