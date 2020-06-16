@@ -1,9 +1,12 @@
 class CardsController < ApplicationController
 
   def new
-    # card = Card.where(user_id: current_user.id)
-    @card = Card.new
-    # redirect_to mypages_path(current_user.id) if card.exists?
+    card = Card.find_by(user_id: current_user.id)
+    if card.blank?
+      @card = Card.new
+    else
+      redirect_to "/cards/:id"
+    end
   end
 
   def pay #payjpとCardのデータベース作成
