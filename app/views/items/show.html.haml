@@ -26,15 +26,14 @@
       %h1.item__list-title 
         =@item.item_name
       .item-box
-        = image_tag image.image_url, size: "300x300"
+        = image_tag("#{@item.images.first.image}", width: '300', height: '300')
         %ul.item-detail
-          - @item.images.each do |image|
-            %li
-              = image_tag image.image_url, size: "147x147"
-            %li
-              = image_tag image.image_url, size: "147x147"
-            %li
-              = image_tag image.image_url, size: "147x147"
+          %li
+            = image_tag("#{@item.images.second.image}", width: '147', height: '147')
+          %li
+            = image_tag("#{@item.images.third.image}", width: '147', height: '147')
+          %li
+            = image_tag("#{@item.images.fourth.image}", width: '147', height: '147')
       .item-price
         %span
           =@item.price
