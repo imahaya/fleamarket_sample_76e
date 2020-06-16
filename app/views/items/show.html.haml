@@ -43,7 +43,7 @@
           %span
             送料込み
       %ul.item-btn
-        -if user_signed_in?
+        -if user_signed_in? && current_user.id == @item.user_id
           %li
             = link_to mypages_path, class: "item-btn_edit" do
               商品の編集

@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    set_item
     @prefecture = Prefecture.find(@item.prefecture_id)
   end
   
