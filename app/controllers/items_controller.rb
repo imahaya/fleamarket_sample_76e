@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
+  before_action :set_item, only: [:show]
   before_action :set_parents, only: [:new, :create]
 
 
@@ -7,6 +8,10 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def show
+    @item.prefecture
+  end
+  
   def search
     #ajax通信を開始
     respond_to do |format|
