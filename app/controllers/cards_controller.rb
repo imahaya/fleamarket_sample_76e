@@ -36,7 +36,11 @@ class CardsController < ApplicationController
       customer_id: customer.id,
       user_id: current_user.id
     )
-    @card.save!
+    if @card.save!
+      redirect_to mypages_path
+    else
+      redirect_to new_card_path
+    end
   end
 
   def destroy #PayjpとCardデータベースを削除
@@ -56,7 +60,7 @@ class CardsController < ApplicationController
     if card.blank?
       redirect_to new_card_path 
     else
-      Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
+      Payjp.api_key = Rails.application.credentials[:private_key]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
