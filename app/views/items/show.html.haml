@@ -48,7 +48,7 @@
             = link_to mypages_path, class: "item-btn_edit" do
               商品の編集
           %li
-            = link_to item_path, method: :delete, class: "item-btn_delete" do
+            = link_to item_path(@item.id), method: :delete, class: "item-btn_delete" do
               この商品を削除する
         -else
           %li
