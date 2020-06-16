@@ -55,7 +55,9 @@
         .items-main__details__texts__text3 必須
       .items-main__details__select
         .items-main__details__select__category
-          = form.select :category,Item.categories.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
+        #category_field
+          = form.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+          -# = form.select :category,Item.categories.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
           %svg.details-category-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
             %path.detals-category-category{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
         .items-main__details__select__texts2
