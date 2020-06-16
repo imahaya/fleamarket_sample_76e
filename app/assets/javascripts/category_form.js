@@ -41,6 +41,8 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data) {
+        $('.child_category_id').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+        $('.gc_category_id').remove();
         // console.log(data)
         let child_select = build_childSelect
         $("#category_field").append(child_select);
@@ -51,7 +53,10 @@ $(function(){
       })
       .fail (function() {
         console.log("失敗");
-      });
+      })
+    }else{
+      $('.child_category_id').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('.gc_category_id').remove();
     }
   });
 
@@ -71,6 +76,7 @@ $(function(){
         dataType: 'json'
       })
         .done(function (gc_data) {
+          $('.gc_category_id').remove();
           // selectタグを生成してビューにappend
           let gc_select = build_gcSelect
           $("#category_field").append(gc_select);
@@ -82,7 +88,9 @@ $(function(){
         })
         .fail(function () {
           alert("gcで通信エラーです！");
-        });
-    }
+        })
+      }else{
+        $('.gc_category_id').remove();
+      }
   });
 })
