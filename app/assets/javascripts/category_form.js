@@ -32,8 +32,13 @@ $(function(){
         dataType: 'json'
       })
       .done(function(data) {
-        console.log(data)
-        let option_html = 
+        // console.log(data)
+        let child_select = build_childSelect
+        $("#category_field").append(child_select);
+        data.forEach(function(data){
+          let option_html = build_Option(data)
+          $(".child_category_id").append(option_html);
+        })
       })
       .fail (function() {
         console.log("失敗");
