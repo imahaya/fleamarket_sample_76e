@@ -1,15 +1,16 @@
 class CardsController < ApplicationController
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to mypages_path(current_user.id) if card.exists?
+    # card = Card.where(user_id: current_user.id)
+    @card = Card.new
+    # redirect_to mypages_path(current_user.id) if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成
     Payjp.api_key = Rails.application.credentials[:PAYJP_PRIVATE_KEY]
     #保管した顧客IDでpayjpから情報取得
     if params['payjp-token'].blank?
-      redirect_to new_card_path
+      redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
         card: params['payjp-token'],
@@ -28,7 +29,7 @@ class CardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials[:payjp][:secret_key]
     customer = Payjp::Customer.create(
       card: params['payjp-token'],
-      metadata: {user_id: currentuser.id}
+      metadata: {user_id: current_user.id}
     )
     @card = Card.new(
       card_id: customer.default_card,

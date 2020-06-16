@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function() {
       let btn = document.getElementById("token_submit"); //IDがtoken_submitの場合に取得されます
       btn.addEventListener("click", e => { //ボタンが押されたときに作動します
         e.preventDefault(); //ボタンを一旦無効化します
+        console.log(document.getElementById("exp_month"));
         let card = { //カード情報生成
           number: document.getElementById("card_number").value,
           cvc: document.getElementById("cvc").value,
@@ -18,7 +19,7 @@ $(document).on('turbolinks:load', function() {
             $("#exp_month").removeAttr("name");
             $("#exp_year").removeAttr("name"); //データを自サーバにpostしないように削除
             console.log(response.id)
-            $("#card_token").append(
+            $("#token_submit").append(
               $('<input type="hidden" name="payjp-token">').val(response.id)
             ); //取得したトークンを送信できる状態にします
             document.inputForm.submit();
