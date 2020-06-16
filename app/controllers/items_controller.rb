@@ -1,6 +1,24 @@
 class ItemsController < ApplicationController
-  before_action :set_item, except: [:index, :new, :create]
-  
+  before_action :set_item, except: [:index, :new, :create, :search]
+  before_action :set_parents, only: [:new, :create]
+
+
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def search
+    #ajax通信を開始
+    respond_to do |format|
+      format.html
+      format.json do
+          #子カテゴリーを探して変数@childrensに代入します！
+          @childrens = Category.find(params[:parent_id]).children
+      end
+    end
+
+  end
+
   def new
     @item = Item.new
     @item.images.new
@@ -13,7 +31,7 @@ class ItemsController < ApplicationController
 
     @item = Item.new(item_params)
     if @item.save!
-    redirect_to root_path
+      redirect_to root_path
     else 
       redirect_to root_path
     end
@@ -34,6 +52,7 @@ class ItemsController < ApplicationController
       redirect_to items_path
     end
   end
+
 
   private
 
