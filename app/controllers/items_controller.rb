@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :set_parents, only: [:new, :create]
 
 
@@ -44,6 +44,9 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -56,7 +59,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render action: :show
+      render :show
     end
 
   end

@@ -1,4 +1,6 @@
-.items-main
+.items-wrapper
+  = render partial: "header"
+  .items-main
   = form_with model: @item, local: true do |form|
     = render 'layouts/error_messages', model: form.object
     .items-main__images
@@ -56,7 +58,7 @@
       .items-main__details__select
         .items-main__details__select__category
         #category_field
-          = form.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+          -# = form.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
           -# = form.select :category,Item.categories.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
           %svg.details-category-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
             %path.detals-category-category{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
@@ -152,8 +154,8 @@
     .items-main__btns
       .items-main__btns__list
         -# %button.items-main__btns__list__1{:tabindex => "0", :type => "submit"} 出品する
-        = form.submit :出品する,id: "btn", class: "items-main__btns__list__1"
-        %button.items-main__btns__list__2{:tabindex => "0", :type => "button"} 下書きに保存
+        = form.submit :変更する,id: "btn", class: "items-main__btns__list__1"
+        %button.items-main__btns__list__2{:tabindex => "0", :type => "button",:onclick => "location.href='item_path(item.id)'"} キャンセル
         %a.items-main__btns__list__3{:href => "/"} もどる
       .items-main__btns__attention
         .items-main__btns__attention__form
@@ -170,14 +172,4 @@
             などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして
             %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約に同意したことになります。
 
--# 元データ
--# %label
--#   #image-box
--#     = form.fields_for :images do |image| 
--#       .js-file_group{"data-index" => "#{image.index}"}
--#         = image.file_field :image, class: "hidden"
--#     %p.images-form-texts
--#       ドラッグアンドドロップ
--#       %br>/
--#       またはクリックしてファイルをアップロード
--######### カリキュラム
+  = render partial: "footer"
