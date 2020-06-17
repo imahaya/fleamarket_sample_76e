@@ -2,7 +2,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/post";
-@import "modules/show";
+@import "items/show";
 @import "items/items";
 @import "login/login";
 @import "mypages/mypages";
@@ -11,3 +11,4 @@
 @import "signup/signup";
 @import "addresses/addresses";
 @import "cards/cards";
+@import "layouts/error_messages";

@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    :registrations => 'users/registrations',
+    :sessions => 'users/sessions'   
+  } 
   root "posts#index"
-  resources :posts, only: [:index,:show]
-  resources :items, only: [:new,:create]
+  resources :posts, only: [:index]
+  resources :items do
+    collection do
+      get :search
+    end
+  end
+
   resources :mypages, only: [:index]
   resources :addresses, only: [:new, :create]
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:index,:edit, :update]
   resources :cards, only: [:new, :show, :edit, :update, :create, :destroy]
 
   resources :purchases, only: [:index] do

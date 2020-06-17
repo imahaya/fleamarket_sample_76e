@@ -70,76 +70,20 @@
       %h1.product__head ピックアップカテゴリー
       .product__body
         %h2.product__body-title 新規投稿商品
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"),"/posts/:id"
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
-    .product
-      %h1.product__head ピックアップブランド
-      .product__body
-        %h2.product__body-title アーカイバ
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
-        .product__list
-          .product__list-img
-            = link_to image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png")
-          .product__list__detail
-            %h3.product__list__detail-name product3
-            %ul.product__list__detail-price
-              %li 30000円
-              %li
-                %i.fa.fa-star.likeIcon
-                0
-            %p.product__list__detail-tax (税込)
+        - @items.each do |item|
+          .product__list
+            .product__list-img
+              = link_to image_tag("#{item.images.first.image}", width: '180', height: '180'), item_path(item.id)
+            .product__list__detail
+              %h3.product__list__detail-name
+                = item.item_name
+              %ul.product__list__detail-price
+                %li 
+                  = item.price
+                %li
+                  %i.fa.fa-star.likeIcon
+                  0
+              %p.product__list__detail-tax (税込)  
     .banner
       .banner__img
         .banner-content
