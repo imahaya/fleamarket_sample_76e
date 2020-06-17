@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :secret_key, only: [:index, :pay]
+  before_action :set_item, only: [:pay, :done]
   require 'payjp'
 
   def index
@@ -27,7 +28,7 @@ class PurchasesController < ApplicationController
       render 'index'
     else
       Payjp::Charge.create(
-      :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
@@ -40,4 +41,9 @@ class PurchasesController < ApplicationController
   def secret_key
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
   end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
 end
