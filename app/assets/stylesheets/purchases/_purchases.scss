@@ -169,6 +169,12 @@ body{
                 font-size: 14px;
                 font-weight: bold;
               }
+              &-inner2{
+                margin-top: 10px;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
+              }
               a {
                 text-decoration: none;
                 color: #0099e8;
@@ -188,6 +194,10 @@ body{
                 height: 14px;
                 font-size: 14px;
                 font-weight: bold;
+              }
+              &-inner2 {
+                margin-top: 5px;
+                color: red;
               }
               a {
                 text-decoration: none;
@@ -211,6 +221,7 @@ body{
                 border-radius: 5px;
                 background-color: #888888;
                 color: #ffffff;
+                cursor: pointer;
               }
             }
           }

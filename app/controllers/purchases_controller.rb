@@ -1,5 +1,5 @@
 class PurchasesController < ApplicationController
-  before_action :secret_key only: [:index, :pay]
+  before_action :secret_key, only: [:index, :pay]
   require 'payjp'
 
   def index
