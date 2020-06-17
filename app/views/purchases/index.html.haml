@@ -54,6 +54,8 @@
                 = link_to new_address_path do
                   登録してください
               .purchases-buy-item
+                - flash.each do |key, value|
+                  = content_tag(:div, value, class: key)
                 = form_tag(action: :pay, method: :post) do
                   %button.purchases-buy-item__btn 購入する
     .purchases-footer

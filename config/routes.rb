@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get 'index', to: 'purchases#index'
       post 'pay', to: 'purchases#pay'
+      get 'pay', to: 'purchases#pay'
       get 'done', to: 'purchases#done'
     end
   end
