@@ -40,7 +40,7 @@ class CardsController < ApplicationController
       user_id: current_user.id
     )
     if @card.save!
-      redirect_to mypages_path
+      redirect_to root_path
     else
       redirect_to new_card_path
     end
