@@ -5,7 +5,7 @@ class CardsController < ApplicationController
     if card.blank?
       @card = Card.new
     else
-      redirect_to "/cards/:id"
+      redirect_to card_path(current_user)
     end
   end
 

@@ -1,7 +1,4 @@
 .mypage-main-container
-  -# = render 'sell/header'
-  -# - breadcrumb :mypage_card
-  -# = render 'mypage/bread-crumbs'
   %main.mypage-container.clearfix
     .mypage-content.signup-main
       %section.mypage-content__chapter-container
@@ -29,20 +26,6 @@
                   = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?238737266",width:"32px",height:"20px"
                 %li
                   = image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/discover.svg?238737266",width:"32px",height:"20px"
-                -# %li
-                -#   = image_tag 'visa.svg', width: '49', height: '20'
-                -# %li
-                -#   = image_tag 'master-card.svg', width: '34', height: '20'
-                -# %li
-                -#   = image_tag 'saison-card.svg', width: '30', height: '20'
-                -# %li
-                -#   = image_tag 'jcb.svg', width: '32', height: '20'
-                -# %li
-                -#   = image_tag 'american_express.svg', width: '21', height: '20'
-                -# %li
-                -#   = image_tag 'dinersclub.svg', width: '32', height: '20'
-                -# %li
-                -#   = image_tag 'discover.svg', width: '32', height: '20'
             .signup-main__form-group.signup-main__form-expire
               %label{ for: 'payment_card_expire' } 有効期限
               %span.signup-main__form-require 必須
@@ -71,10 +54,6 @@
                 .signup-main__seqcode--info{ id: 'seqcode-tips-content' }
                   カードの裏面をご参照ください。
                   %br
-                  -# = image_tag 'seq-card.png', width: '240'
             %p.signup-main__has-error-text{ id: 'primary-error' }
               #card_token
               = f.submit '追加する', id: 'token_submit', class: 'signup-main__btn-default signup-main__btn-red'
-  -#   = render 'mypage/side-bar'
-  -# = render 'sell/footer'
-  -# = render 'sell/sellbutton'
