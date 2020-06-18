@@ -84,6 +84,10 @@
                   %i.fa.fa-star.likeIcon
                   0
               %p.product__list__detail-tax (税込)  
+            -if item.purchaser_id.present?
+              .items-box_photo__sold
+                .items-box_photo__sold__inner
+                  SOLD
     .banner
       .banner__img
         .banner-content

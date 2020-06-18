@@ -1,7 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :secret_key, only: [:index, :pay]
   before_action :set_card, only: [:index, :pay]
-  before_action :set_item, only: [:index]
+  before_action :set_item, only: [:index, :pay]
+  before_action :done, only: [:pay]
   
   require 'payjp'
 
@@ -23,7 +24,7 @@ class PurchasesController < ApplicationController
       render 'index'
     else
       Payjp::Charge.create(
-      :amount => @item.item_price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
@@ -45,5 +46,8 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def  done
+    @item.update( purchaser_id: current_user.id)
+  end
 
 end

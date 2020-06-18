@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_014559) do
     t.integer "condition", default: 0, null: false
     t.integer "category_id", null: false
     t.bigint "user_id"
+    t.integer "purchaser_id"
     t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

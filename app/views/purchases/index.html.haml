@@ -12,7 +12,7 @@
           .purchases-main__buy__content-item
             .purchases-main__buy__content-item-box
               %h3.purchases-main__buy__content-item-box__image
-                %img.is-higher-height.lazyloaded{alt: "", "data-src": "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077", src: "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077"}/
+                = image_tag("#{@item.images.first.image}", size: "100x80")
               .purchases-main__buy-item-data
                 %p.purchases-main__buy-item-data__name
                   = @item.item_name
