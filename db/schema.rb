@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_06_15_014559) do
     t.bigint "user_id"
     t.integer "purchaser_id"
     t.string "brand"
+    t.string "trading", default: "出品中"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"

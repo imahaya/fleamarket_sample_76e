@@ -54,11 +54,14 @@
           %li
             = link_to item_path(@item.id), method: :delete, class: "item-btn_delete" do
               この商品を削除する
-        -elsif user_signed_in?
+        -elsif user_signed_in? && @item.trading == "SOLDOUT"
+          %li.item-btn_sold
+            SOLD OUT
+        -elsif user_signed_in? && @item.trading == "出品中"
           %li
             = link_to purchases_path, class: "item-btn_buy" do
               購入画面に進む
-        -else 
+        - else
       .item-review 
         =@item.introduction
       .table

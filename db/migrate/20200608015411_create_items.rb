@@ -12,6 +12,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :user#, null:false, foreign_key:true
       t.integer :purchaser_id
       t.string :brand
+      t.string :trading, default: '出品中'
       t.timestamps
     end
   end

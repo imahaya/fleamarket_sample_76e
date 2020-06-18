@@ -47,7 +47,7 @@ class PurchasesController < ApplicationController
   end
 
   def  done
-    @item.update( purchaser_id: current_user.id)
+    @item.update( purchaser_id: current_user.id, trading: 'SOLDOUT')
   end
 
 end
