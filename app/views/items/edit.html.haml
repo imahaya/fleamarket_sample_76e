@@ -58,10 +58,15 @@
       .items-main__details__select
         .items-main__details__select__category
         #category_field
-          -# = form.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
-          -# = form.select :category,Item.categories.keys,{prompt:"選択してください"}, {class:"select--wrap__default"}
-          %svg.details-category-select{"aria-hidden" => "true", :fill => "#888888", "fill-rule" => "evenodd", :height => "24", :viewbox => "0 0 24 24", :width => "24"}
-            %path.detals-category-category{:d => "M12,15.66a1.73,1.73,0,0,1-1.2-.49L5.21,9.54a.7.7,0,0,1,1-1l5.62,5.62c.15.15.27.15.41,0L17.8,8.6a.71.71,0,0,1,1,0,.69.69,0,0,1,0,1l-5.57,5.58A1.71,1.71,0,0,1,12,15.66Z"}
+          = form.collection_select :category_id, Category.roots, :id , :name, {include_blank: "---", selected: @item.category&.root_id}, required: true, class: "select-category", id: "category_form"
+          
+        #category_field_children
+          -# = form.collection_select :category_id, @item.category.siblings, :id , :name, {include_blank: "---", selected: @item.category.parent}, required: true, class: "select-category", id: "category_form"
+          = form.collection_select :category_id, @item.category.parent.siblings, :id , :name, {include_blank: "---", selected: @item.category.parent_id}, required: true, class: "select-category", id: "category_form"
+
+        #category_field_grandchild
+          = form.collection_select :category_id, @item.category.siblings, :id , :name, {include_blank: "---", selected: @item.category_id}, required: true, class: "select-category", id: "category_form"
+         
         .items-main__details__select__texts2
           .items-main__details__select__texts2__text4 ブランド
           .items-main__details__select__texts2__text5 任意
@@ -173,3 +178,15 @@
             %a.attention-text5{:href => "/jp/seller_terms/", :rel => "noopener noreferrer", :target => "_blank"}> 加盟店規約に同意したことになります。
 
   = render partial: "footer"
+
+
+  -# #category_field
+  -#         = form.collection_select :category_id, Category.roots, :id , :name, {include_blank: "---", selected: @item.category&.root_id}, required: true, class: "select-category", id: "category_form"
+          
+  -#       #category_field_children
+  -#         = form.collection_select :category_id, @item.category.parent.siblings, :id , :name, {include_blank: "---", selected: @item.category.parent_id}, required: true, class: "select-category", id: "category_form"
+         
+  -#       #category_field_grandchild
+  -#         -# = form.collection_select :category_id, @item.category.siblings, :id , :name, {include_blank: "---", selected: @item.parent_id}, required: true, class: "select-category", id: "category_form"
+  -#         = form.select :category_id, options_for_select(@item.category.parent.children), {}, {class: 'select', id: 'category_form'}
+  -#            -#   = form.select :category_id, options_for_select(@item.category.parent.children), {}, {class: 'select', id: 'category_form'}
