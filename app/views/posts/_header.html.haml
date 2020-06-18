@@ -21,7 +21,7 @@
           -#         - child.children.each do |grandchild|
           -#           =grandchild.name
         %li.lists__left-brand
-          = link_to "", class: "lists__left-brand" do
+          = link_to purchases_path, class: "lists__left-brand" do
             ブランド
       %ul.lists__right
         - if user_signed_in?
