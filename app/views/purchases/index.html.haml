@@ -12,12 +12,14 @@
           .purchases-main__buy__content-item
             .purchases-main__buy__content-item-box
               %h3.purchases-main__buy__content-item-box__image
-                %img.is-higher-height.lazyloaded{alt: "", "data-src": "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077", src: "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077"}/
+                = image_tag("#{@item.images.first.image}", size: "100x80")
               .purchases-main__buy-item-data
                 %p.purchases-main__buy-item-data__name
-                  新品  セサミストリート  ユニクロ  カウズTシャツ 白  ホワイト  KAWS
+                  = @item.item_name
                 %p.purchases-main__buy-item__price
-                  %span ¥1,999
+                  %span
+                    ¥
+                    = @item.price
                   %span.purchases-main__buy-item__tax （税込）送料込み
         .purchases-content
           .purchases-content__inner
@@ -26,7 +28,9 @@
                 %ul.purchases-price__list
                   %li.purchases-price__list-pay
                     .purchases-price__list-pay__form 支払い金額
-                    .purchases-price__list-pay__money ¥1,999
+                    .purchases-price__list-pay__money 
+                      ¥
+                      = @item.price
               .purchases-have-point
                 %ul.buy-accordion.buy-not-have-point
                   %li.accordion-parent
