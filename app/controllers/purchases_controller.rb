@@ -1,10 +1,11 @@
 class PurchasesController < ApplicationController
   before_action :secret_key, only: [:index, :pay]
   before_action :set_card, only: [:index, :pay]
+  before_action :set_item, only: [:index]
+  
   require 'payjp'
 
   def index
-
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if @card.present?
       #保管した顧客IDでpayjpから情報取得
@@ -22,7 +23,7 @@ class PurchasesController < ApplicationController
       render 'index'
     else
       Payjp::Charge.create(
-      :amount => 10000, #支払金額を入力（itemテーブル等に紐づけても良い）
+      :amount => @item.item_price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
@@ -39,5 +40,10 @@ class PurchasesController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first
   end
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 
 end
