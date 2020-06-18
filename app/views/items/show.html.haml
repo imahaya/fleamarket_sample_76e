@@ -53,10 +53,11 @@
           %li
             = link_to item_path(@item.id), method: :delete, class: "item-btn_delete" do
               この商品を削除する
-        -else
+        -elsif user_signed_in?
           %li
             = link_to purchases_path, class: "item-btn_buy" do
               購入画面に進む
+        -else 
       .item-review 
         =@item.introduction
       .table
