@@ -2,8 +2,6 @@ class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
   before_action :set_item, only: [:show, :destroy]
   before_action :set_parents, only: [:new, :create]
-  before_action :item_trading, only: [:create]
-
 
   def set_parents
     @parents = Category.where(ancestry: nil)
@@ -71,10 +69,6 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
-  end
-
-  def item_trading
-    @item.create(trading: "出品中")
   end
 
 end
