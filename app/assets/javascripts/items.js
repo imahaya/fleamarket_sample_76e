@@ -12,6 +12,7 @@ $(document).on('turbolinks:load', ()=> {
   const buildImg = (index, url)=> {
     const html = `<div class="test">
                     <img data-index="${index}" src="${url}" width="100px" height="100px">
+                    <div class="js-edit">編集</div>
                     <div class="js-remove">削除</div>
                    </div>`;
     return html;
@@ -47,6 +48,24 @@ $(document).on('turbolinks:load', ()=> {
     }
   });
 
+  // })
+  // // $("#image-upload").on("click", 'img', function (e) {
+  // //   e.stopPropagation(); // 親要素のイベントが発火するのを防ぐ。
+  //   console.log(this)
+  //   let index = $(this).parents("#image-box")[0].dataset.index; //何番目の画像を変更するかを取得する。
+  //   console.log("index", index)
+  //   // $(`.js-edit${index}`).trigger("click");
+  // });
+
+
+  // 編集
+  $('#image-box').on('click', '.js-edit', function() {
+    // let index = $(this).parent().data('index'); //何番目の画像を変更するかを取得する。
+    // console.log("index", index)
+    $(`#item_images_attributes_0_image`).trigger("click");
+  });
+
+  // 削除
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
