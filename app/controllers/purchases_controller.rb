@@ -2,7 +2,6 @@ class PurchasesController < ApplicationController
   before_action :secret_key, only: [:index, :pay]
   before_action :set_card, only: [:index, :pay]
   before_action :set_item, only: [:index, :pay]
-  # before_action :done, only: [:pay]
   
   require 'payjp'
 
@@ -47,9 +46,5 @@ class PurchasesController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
-  # def  done
-  #   @item.update( purchaser_id: current_user.id, trading: 'SOLDOUT')
-  # end
 
 end
