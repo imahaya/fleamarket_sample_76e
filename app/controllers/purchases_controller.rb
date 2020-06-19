@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
   before_action :secret_key, only: [:index, :pay]
   before_action :set_card, only: [:index, :pay]
   before_action :set_item, only: [:index, :pay]
-  before_action :done, only: [:pay]
+  # before_action :done, only: [:pay]
   
   require 'payjp'
 
@@ -20,14 +20,16 @@ class PurchasesController < ApplicationController
 
     if @card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      flash[:alert] = 'カードを登録してください'
-      render 'index'
+      flash[:card_touroku] = 'カードを登録してください'
+      # render 'index'
+      redirect_to purchases_path
     else
       Payjp::Charge.create(
       :amount => @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       :customer => @card.customer_id, #顧客ID
       :currency => 'jpy', #日本円
     )
+    @item.update( purchaser_id: current_user.id, trading: 'SOLDOUT')
     redirect_to action: 'done' #完了画面に移動
     end
   end
@@ -46,8 +48,8 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def  done
-    @item.update( purchaser_id: current_user.id, trading: 'SOLDOUT')
-  end
+  # def  done
+  #   @item.update( purchaser_id: current_user.id, trading: 'SOLDOUT')
+  # end
 
 end

@@ -3,7 +3,8 @@
     .mypage-content.signup-main
       %section.mypage-content__chapter-container
         %h2.signup-main__chapter-head
-          クレジットカード情報入力
+          = link_to root_path do
+            クレジットカード情報入力
         = form_with model: @card, id: 'charge-form', class: 'signup-main__inner signup-main__inner--registration-form', novalidate: 'novalidate', html: { name: 'inputForm' } do |f|
           .signup-main__content
             .signup-main__form-group

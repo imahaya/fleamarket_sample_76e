@@ -210,7 +210,7 @@ body{
             .purchases-buy-item{
               width: 343px;
               height: 50px;
-              padding-top: 32px;      
+              padding-top: 28px;      
               border-top: 1px solid #f5f5f5;
               text-align: center;
               .alert {
@@ -259,5 +259,8 @@ body{
       display: block;
       margin: auto;
     }
+  }
+  .purchases-alert {
+    color: red;
   }
 }
