@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', ()=> {
   $('#image-upload').click(function(){
     $('.js-file').last().trigger("click")
   })
-  $('#image-box').on('change', '.js-file', function(e) {
+  $('#testtest').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      $('#testtest').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
@@ -59,14 +59,13 @@ $(document).on('turbolinks:load', ()=> {
 
 
   // 編集
-  $('#image-box').on('click', '.js-edit', function() {
-    // let index = $(this).parent().data('index'); //何番目の画像を変更するかを取得する。
-    // console.log("index", index)
-    $(`#item_images_attributes_0_image`).trigger("click");
+  $('#previews').on('click', '.js-edit', function() {
+    let index = $(this).parent().data('index'); //何番目の画像を変更するかを取得する。
+    $(`#item_images_attributes_[index]_image`).trigger("click");
   });
 
   // 削除
-  $('#image-box').on('click', '.js-remove', function() {
+  $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);

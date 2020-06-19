@@ -47,50 +47,60 @@
         margin-bottom: 16px;
       }
       #image-box {
-    #image-upload {
-          height: 150px;
-          width: 100%;
-          align-content: center;
-          -webkit-box-align: center;
-          align-items: center;
-          background-color: rgb(245, 245, 245);
+        display: flex;
+        width: 620px;
+        #previews {
           cursor: pointer;
-          flex-wrap: wrap;
-          -webkit-box-pack: center;
-          justify-content: center;
-          position: relative;
-          border-width: 1px;
-          border-style: dashed;
-          border-color: rgb(204, 204, 204);
-          border-image: initial;
-          transition: all 0.5s ease-out 0s;
-          box-sizing: border-box;
-          input {
-            display: none;
-          }
-          .images-file-icon1 {
-            fill: rgb(34, 34, 34);
-            height: 24px;
-            margin-bottom: 8px;
-            width: 24px;
-          }
-          .images-form-texts {
-            font-size: 12px;
-            line-height: 1.4em;
-            text-align: center;
-            width: 100%;
-            color: #ffffff;
-          }
         }
-        #image-box {
-          #preview {
-            display: flex;
-            .js-file_group {
-            
+        #image-upload {
+            height: 150px;
+            width: 100%;
+            align-content: center;
+            -webkit-box-align: center;
+            align-items: center;
+            background-color: rgb(245, 245, 245);
+            cursor: pointer;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            border-width: 1px;
+            border-style: dashed;
+            border-color: rgb(204, 204, 204);
+            border-image: initial;
+            transition: all 0.5s ease-out 0s;
+            box-sizing: border-box;
+            p {
+              font-size: auto;
+              text-align: center;
+              line-height: 150px;
+            }
+            input {
+              display: none;
+            }
+            .images-file-icon1 {
+              fill: rgb(34, 34, 34);
+              height: 24px;
+              margin-bottom: 8px;
+              width: 24px;
+            }
+            .images-form-texts {
+              font-size: 12px;
+              line-height: 1.4em;
+              text-align: center;
+              width: 100%;
+              color: #ffffff;
+            }
+          }
+          #image-box {
+            #preview {
+              display: flex;
+              .js-file_group {
+              
+              }
             }
           }
         }
-      }
     }
     &__introduction {
       background-color: #ffffff;
