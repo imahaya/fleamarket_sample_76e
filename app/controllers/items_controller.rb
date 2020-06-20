@@ -6,8 +6,6 @@ class ItemsController < ApplicationController
 
   def set_parents
     @parents = Category.where(ancestry: nil)
-    # @childrens = Category.where(ancestry: nil)
-    # @grandChilds = Category.where(ancestry: nil)
   end
 
   def show

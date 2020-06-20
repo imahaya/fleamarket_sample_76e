@@ -1,7 +1,7 @@
 $(function(){
   function build_childSelect() {
     let child_select = `
-              <select name="post[category_id]" class="child_category_id">
+              <select name="item[category_id]" class="child_category_id">
                 <option value="">---</option>
               </select>
               `
