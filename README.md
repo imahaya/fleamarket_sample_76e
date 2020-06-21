@@ -28,24 +28,24 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false,unique: true, add_index: true|
-|password|string|null: false|
+|name|string|null: false|
+|email|string|null: false, default: "", unique: true, add_index: true|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-|address_id|references|null: false, foreign_key: true|
-|phone_number|integer|null: false,unique: true|
-|user_image|string|
+|user_image|text|
 |introduction|text|
+|address|references|
+|phone_number|integer|null: false, unique: true, limit: 8|
+|encrypted_password|string|null: false, default: ""|
 ### Association
 - has_many :items
 - has_many :cards
 - has_many :sellers
 - has_many :buyers
-- belongs_to :address
+- has_one :address
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -54,12 +54,15 @@ Things you may want to cover:
 |shopping_first_name|string|null: false|
 |shopping_family_name_kana|string|null: false|
 |shopping_first_name_kana|string|null: false|
-|post_code|integer(7)|null: false|
+|post_code|integer|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
-|phone_number|integer|null: false,unique: true|
+|buildingname|string|
+|phone_number|integer|limit: 8|
+|user|references|foreign_key: true|
 ### Association
+- belongs_to_active_hash :prefecture
 - belongs_to :user
 - belongs_to :seller
 - belongs_to :buyer
@@ -67,7 +70,7 @@ Things you may want to cover:
 ## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false|
 |card_id|string|null: false|
 |customer_id|string|null: false|
 ### Association
@@ -76,8 +79,8 @@ Things you may want to cover:
 ## sellersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|address_id|references|null: false, foreign_key: true|
+|user|references|null: false|
+|address|references|null: false|
 ### Association
 - belongs_to :user
 - has_many :addresses
@@ -85,8 +88,8 @@ Things you may want to cover:
 ## buyersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|address_id|references|null: false, foreign_key: true|
+|user|references|null: false|
+|address|references|null: false|
 ### Association
 - belongs_to :user
 - has_many :addresses
@@ -96,25 +99,26 @@ Things you may want to cover:
 |------|----|-------|
 |item_name|string|null: false|
 |introduction|text|null: false|
-|consignor_area|string|null: false|
+|prefecture_id|integer|null: false|
 |price|integer|null: false|
-|days|integer|null: false|
-|delivery_fee|integer|null: false|
-|condition|integer|null: false|
-|category_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
+|day|integer|null: false, default: 0|
+|delivery_fee|integer|null: false, default: 0|
+|condition|integer|null: false, default: 0|
+|category_id|integer|null: false, foreign_key: true|
+|user|references|
+|purchaser_id|integer|
+|brand|string|
+|trading|string|default: '出品中'|
 ### Association
+- belongs_to_active_hash :prefecture
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
 - has_many :images
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null: false|
-|item_id|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
 
@@ -129,6 +133,5 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false|
 ### Association
 - has_many :items

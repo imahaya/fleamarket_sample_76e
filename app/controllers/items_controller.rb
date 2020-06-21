@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :set_parents, only: [:new, :create,:edit, :update]
 
-
   def set_parents
     @parents = Category.where(ancestry: nil)
   end

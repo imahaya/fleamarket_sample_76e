@@ -39,6 +39,7 @@
             = image_tag(@item.images.fourth.image.to_s, size: "147x147")
       .item-price
         %span
+          ¥
           =@item.price
         .item-price__detail
           %span
@@ -53,10 +54,14 @@
           %li
             = link_to item_path(@item.id), method: :delete, class: "item-btn_delete" do
               この商品を削除する
-        -else
+        -elsif user_signed_in? && @item.trading == "SOLDOUT"
+          %li.item-btn_sold
+            SOLD OUT
+        -elsif user_signed_in? && @item.trading == "出品中"
           %li
-            = link_to user_session_path, class: "item-btn_buy" do
+            = link_to purchases_path, class: "item-btn_buy" do
               購入画面に進む
+        - else
       .item-review 
         =@item.introduction
       .table

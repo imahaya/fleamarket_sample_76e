@@ -169,6 +169,12 @@ body{
                 font-size: 14px;
                 font-weight: bold;
               }
+              &-inner2{
+                margin-top: 5px;
+                color: #0099e8;
+                font-weight: lighter;
+                font-size: 14px;
+              }
               a {
                 text-decoration: none;
                 color: #0099e8;
@@ -189,6 +195,10 @@ body{
                 font-size: 14px;
                 font-weight: bold;
               }
+              &-inner2 {
+                margin-top: 5px;
+                color: red;
+              }
               a {
                 text-decoration: none;
                 color: #0099e8;
@@ -200,10 +210,13 @@ body{
             .purchases-buy-item{
               width: 343px;
               height: 50px;
-              padding-top: 32px;      
+              padding-top: 28px;      
               border-top: 1px solid #f5f5f5;
               text-align: center;
-  
+              .alert {
+                color: red;
+                width: 313px;
+              }
               &__btn{
                 width: 341px;
                 height: 48px;
@@ -211,6 +224,7 @@ body{
                 border-radius: 5px;
                 background-color: #888888;
                 color: #ffffff;
+                cursor: pointer;
               }
             }
           }
@@ -245,5 +259,8 @@ body{
       display: block;
       margin: auto;
     }
+  }
+  .purchases-alert {
+    color: red;
   }
 }
