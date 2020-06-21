@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, except: [:index, :new, :create, :search]
-  before_action :set_item, only: [:show, :destroy]
-  before_action :set_parents, only: [:new, :create]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
+  before_action :set_parents, only: [:new, :create,:edit, :update]
 
   def set_parents
     @parents = Category.where(ancestry: nil)
@@ -43,6 +43,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @parents_category = Category.where(ancestry: nil)
+    # 親セレクトボックスの初期値(配列)
+    @parents_array = []
+    # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+      
+    @parents_array << @parents_category.pluck(:name)
+
+  end
+
   def update
     if @item.update(item_params)
       redirect_to root_path
@@ -55,7 +65,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to root_path
     else
-      render action: :show
+      render :show
     end
 
   end
@@ -71,4 +81,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def set_category  
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 end

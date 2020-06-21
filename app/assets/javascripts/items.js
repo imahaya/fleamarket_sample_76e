@@ -10,10 +10,13 @@ $(document).on('turbolinks:load', ()=> {
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<div class="test">
-                    <img data-index="${index}" src="${url}" width="100px" height="100px">
-                    <div class="js-remove">削除</div>
-                   </div>`;
+    const html = `<div class="test1" data-index="${index}">
+                    <div class="test2">
+                      <img class="edit" data-index="${index}" src="${url}" width="100px" height="100px">
+                      <div class="js-edit" data-index="${index}">編集</div>
+                      <div class="js-remove" data-index="${index}">削除</div>
+                    </div>
+                  </div>`;
     return html;
   }
 
@@ -28,7 +31,7 @@ $(document).on('turbolinks:load', ()=> {
   $('#image-upload').click(function(){
     $('.js-file').last().trigger("click")
   })
-  $('#image-box').on('change', '.js-file', function(e) {
+  $('#testtest').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -40,22 +43,31 @@ $(document).on('turbolinks:load', ()=> {
     } else {  // 新規画像追加の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      $('#testtest').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
 
-  $('#image-box').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
+  
+  // 編集
+  $('#previews').on('click', '.js-edit', function() {
+    const id = $(this).attr('data-index').replace(/[^0-9]/g, '');
+    $(`#item_images_attributes_${id}_image`).trigger("click");
+  });
+
+
+  // 削除
+  $('#previews').on('click', '.js-remove', function() {
+    const targetIndex = $(this).attr('data-index').replace(/[^0-9]/g, '');
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
+    $(`#item_images_attributes_${targetIndex}_image`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
