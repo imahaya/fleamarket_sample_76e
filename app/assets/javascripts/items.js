@@ -10,10 +10,12 @@ $(document).on('turbolinks:load', ()=> {
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<div class="test" data-index="${index}">
-                    <img class="edit" data-index="${index}" src="${url}" width="100px" height="100px">
-                    <div class="js-edit" data-index="${index}">編集</div>
-                    <div class="js-remove" data-index="${index}">削除</div>
+    const html = `<div class="test1" data-index="${index}">
+                    <div class="test2">
+                      <img class="edit" data-index="${index}" src="${url}" width="100px" height="100px">
+                      <div class="js-edit" data-index="${index}">編集</div>
+                      <div class="js-remove" data-index="${index}">削除</div>
+                    </div>
                   </div>`;
     return html;
   }
