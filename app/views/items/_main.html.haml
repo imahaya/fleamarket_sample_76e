@@ -9,13 +9,19 @@
       
       #image-box
         #previews
+          -#ここの部分はもし@itemがデータベースに保存済みだった場合true,そうでなければfalse
+          -#コードの意味的にはデータが保存されていたらイメージ画像と削除と編集を表示する
+          -#ここの部分は編集画面実装の際に利用する可能性が高い
           - if @item.persisted?
-            - @item.images.each_with_index do |image, i|
-              test1
-              = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
-              .js-remove 削除
+            .test
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+                .js-edit 編集
+                .js-remove 削除
+
         #image-upload
           %p 画像を投稿してください
+
         #testtest       
           = form.fields_for :images do |image|
             .preview
