@@ -12,12 +12,14 @@
           .purchases-main__buy__content-item
             .purchases-main__buy__content-item-box
               %h3.purchases-main__buy__content-item-box__image
-                %img.is-higher-height.lazyloaded{alt: "", "data-src": "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077", src: "https://static.mercdn.net/thumb/photos/m46666003867_1.jpg?1591254077"}/
+                = image_tag("#{@item.images.first.image}", size: "100x80")
               .purchases-main__buy-item-data
                 %p.purchases-main__buy-item-data__name
-                  新品  セサミストリート  ユニクロ  カウズTシャツ 白  ホワイト  KAWS
+                  = @item.item_name
                 %p.purchases-main__buy-item__price
-                  %span ¥1,999
+                  %span
+                    ¥
+                    = @item.price
                   %span.purchases-main__buy-item__tax （税込）送料込み
         .purchases-content
           .purchases-content__inner
@@ -26,7 +28,9 @@
                 %ul.purchases-price__list
                   %li.purchases-price__list-pay
                     .purchases-price__list-pay__form 支払い金額
-                    .purchases-price__list-pay__money ¥1,999
+                    .purchases-price__list-pay__money 
+                      ¥
+                      = @item.price
               .purchases-have-point
                 %ul.buy-accordion.buy-not-have-point
                   %li.accordion-parent
@@ -37,15 +41,27 @@
               .purchases-user__info
                 .purchases-user__info-inner
                   支払い方法
-                %i.icon-plus-circle
-                =link_to "登録してください"
+                .purchases-user__info-inner2
+                  - if @default_card_information.blank?
+                    = link_to new_card_path do
+                      登録してください
+                  - else
+                    -#以下カード情報を表示
+                    = "**** **** **** " + @default_card_information.last4
+                    - exp_month = @default_card_information.exp_month.to_s
+                    - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                    = exp_month + " / " + exp_year
               .purchases-shipping-address
                 .purchases-shipping-address-inner
                   配送先
                 %i.icon-plus-circle
-                =link_to "登録してください"
+                = link_to new_address_path do
+                  登録してください
               .purchases-buy-item
-                %button.purchases-buy-item__btn{disabled: "disabled", type: "submit"} 購入する
+                .purchases-alert
+                  = flash[:card_touroku]
+                = form_tag(action: :pay, method: :post) do
+                  %button.purchases-buy-item__btn 購入する
     .purchases-footer
       %ul.purchases-footer__nuv
         %li プライバシーポリシー

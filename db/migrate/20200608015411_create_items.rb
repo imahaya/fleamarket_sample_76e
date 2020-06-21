@@ -9,8 +9,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :delivery_fee, null:false, default: 0
       t.integer :condition, null:false, default: 0
       t.integer :category_id, null:false, foreign_key:true
-      t.references :user                  #, null:false, foreign_key:true
+      t.references :user#, null:false, foreign_key:true
+      t.integer :purchaser_id
       t.string :brand
+      t.string :trading, default: '出品中'
       t.timestamps
     end
   end
