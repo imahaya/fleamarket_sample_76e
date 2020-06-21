@@ -37,7 +37,6 @@ $(function(){
         $('.child_category_id').remove();
         $('.gc_category_id').remove();
         let child_select = build_childSelect
-        console.log(child_select)
         $("#category_field").append(child_select);
         data.forEach(function(data){
           let option_html = build_Option(data)
@@ -63,10 +62,8 @@ $(function(){
         dataType: 'json'
       })
         .done(function (gc_data) {
-          console.log(gc_data)
           $('.gc_category_id').remove();
           let gc_select = build_gcSelect
-          console.log(gc_select)
           $("#category_field").append(gc_select);
           gc_data.forEach(function (gc_d) {
             let option_html = build_Option(gc_d);

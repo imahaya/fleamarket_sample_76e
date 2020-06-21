@@ -52,8 +52,6 @@ $(document).on('turbolinks:load', ()=> {
   // 編集
   $('#previews').on('click', '.js-edit', function() {
     const id = $(this).attr('data-index').replace(/[^0-9]/g, '');
-    
-    console.log("index", id)
     $(`#item_images_attributes_${id}_image`).trigger("click");
   });
 
@@ -61,7 +59,6 @@ $(document).on('turbolinks:load', ()=> {
   // 削除
   $('#previews').on('click', '.js-remove', function() {
     const targetIndex = $(this).attr('data-index').replace(/[^0-9]/g, '');
-    console.log("targetIndex", targetIndex);
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // もしチェックボックスが存在すればチェックを入れる
