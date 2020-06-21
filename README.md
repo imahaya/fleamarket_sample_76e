@@ -1,27 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション名
+フリマ
 
-Things you may want to cover:
+# アプリケーション概要
+フリマアプリのクローンサイト。5人のチームでアジャイル開発を行いました。
+誰でも簡単に売り買いが楽しめるフリマアプリの機能を再現したページ。 ユーザー登録、商品出品、商品購入などの機能が再現されていますが、実際の取引はできません。
 
-* Ruby version
+# 機能一覧
+●haml/SASS記法と、命名規則BEMを使ったマークアップ
 
-* System dependencies
+●ユーザー登録、ログイン機能
 
-* Configuration
+●カテゴリー機能(ancestry)
 
-* Database creation
+●商品出品機能
 
-* Database initialization
+●商品購入機能
 
-* How to run the test suite
+●クレジットカード登録機能(PayJP)
 
-* Services (job queues, cache servers, search engines, etc.)
+●ajaxを使用した非同期処理
 
-* Deployment instructions
+# 使用技術
+## ●データベース
+MySQL 5.6.47
 
-* ...
+## ●インフラ
+AWS EC2
+
+AWS S3
+
+## デプロイ
+Capistranoによる自動デプロイ
 
 
 # fleamarket_sample_76e DB設計
