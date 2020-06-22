@@ -49,9 +49,11 @@ $(document).on('turbolinks:load', ()=> {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
+    if (targetIndex == 4){
+      $('#image-upload').css('display', 'none')   
+    }
   });
 
-  
   // 編集
   $('#previews').on('click', '.js-edit', function() {
     const id = $(this).attr('data-index').replace(/[^0-9]/g, '');
