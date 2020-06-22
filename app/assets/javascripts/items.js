@@ -31,6 +31,7 @@ $(document).on('turbolinks:load', ()=> {
   $('#image-upload').click(function(){
     $('.js-file').last().trigger("click")
   })
+  
   $('#testtest').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する

@@ -7,7 +7,7 @@
       .items-main__images__texts
         .items-main__images__texts__text1 出品画像
         .items-main__images__texts__text2 必須
-      .items-main__images__text3 最大10枚までアップロードできます
+      .items-main__images__text3 最大5枚までアップロードできます
       
       #image-box
         #previews
@@ -23,7 +23,7 @@
                   .js-remove{data: { index: i }} 削除
 
         #image-upload
-          %p 画像を投稿してください
+          %p 📷
         #testtest       
           = form.fields_for :images do |image|
             .preview

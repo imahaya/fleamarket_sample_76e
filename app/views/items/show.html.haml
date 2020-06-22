@@ -37,6 +37,9 @@
           %li
           -if @item.images.fourth
             = image_tag(@item.images.fourth.image.to_s, size: "147x147")
+          %li
+          -if @item.images.fifth
+            = image_tag(@item.images.fifth.image.to_s, size: "147x147")
       .item-price
         %span
           ¥

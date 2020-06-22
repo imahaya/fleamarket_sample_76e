@@ -48,7 +48,8 @@
       }
       #image-box {
         display: flex;
-        width: 620px;
+        width: 562px;
+        margin: auto;
         #previews {
           cursor: pointer;
         }
@@ -74,6 +75,7 @@
               font-size: auto;
               text-align: center;
               line-height: 150px;
+              font-size: 30px;
             }
             input {
               display: none;
