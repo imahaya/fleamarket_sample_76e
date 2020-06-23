@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<div class="test1" data-index="${index}">
-                    <div class="test2">
+                    <div class="test2" data-index="${index}">
                       <img class="edit" data-index="${index}" src="${url}" width="100px" height="100px">
                       <div class="js-edit" data-index="${index}">編集</div>
                       <div class="js-remove" data-index="${index}">削除</div>
@@ -49,9 +49,9 @@ $(document).on('turbolinks:load', ()=> {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
-    if (targetIndex == 4){
+    if ($('.test2').length == 5){
       $('#image-upload').css('display', 'none')   
-    }
+    } 
   });
 
   // 編集

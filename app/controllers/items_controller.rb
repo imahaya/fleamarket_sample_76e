@@ -30,17 +30,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def index
+    redirect_to new_item_path
+  end
   def new
     @item = Item.new
     @item.images.new
   end
-
   def create
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
     else
-      render "new"
+      @item.images.build
+      render new_item_path
     end
   end
 
