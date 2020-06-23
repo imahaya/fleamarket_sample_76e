@@ -49,10 +49,17 @@ $(document).on('turbolinks:load', ()=> {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
+    
     if ($('.test2').length == 5){
       $('#image-upload').css('visibility', 'hidden')
     } 
   });
+  
+  
+  if ($('.test2').length == 5){
+    $('#image-upload').css('visibility', 'hidden')
+  }
+  
 
   // 編集
   $('#previews').on('click', '.js-edit', function() {
