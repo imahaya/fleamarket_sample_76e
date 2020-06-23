@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
     if ($('.test2').length == 5){
-      $('#image-upload').css('display', 'none')   
+      $('#image-upload').css('display', 'none')
     } 
   });
 
@@ -71,7 +71,10 @@ $(document).on('turbolinks:load', ()=> {
 
     $(this).parent().remove();
     $(`#item_images_attributes_${targetIndex}_image`).remove();
-
+    
+    if ($('.test2').length == 4){
+      $('#image-upload').css('display',  "block")
+    } 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
