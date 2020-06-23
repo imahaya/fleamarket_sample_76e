@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+  before_action :correct_user, only: [:index]
+  before_action :buy_user, only: [:index]
   before_action :secret_key, only: [:index, :pay]
   before_action :set_card, only: [:index, :pay]
   before_action :set_item, only: [:index, :pay]
@@ -47,4 +49,17 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def correct_user
+    @item = Item.find(params[:id])
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
+
+  def buy_user
+    @item = Item.find(params[:id])
+    if @item.purchaser_id.present?
+      redirect_to root_path
+    end
+  end
 end

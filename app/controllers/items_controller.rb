@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
   before_action :set_item, except: [:index, :new, :create, :search]
   before_action :set_item, only: [:show, :destroy, :edit, :update]
   before_action :set_parents, only: [:new, :create,:edit, :update]
@@ -83,5 +84,12 @@ class ItemsController < ApplicationController
 
   def set_category  
     @category_parent_array = Category.where(ancestry: nil)
+  end
+
+  def correct_user
+    @item = Item.find(params[:id])
+    if current_user.id != @item.user_id
+      redirect_to root_path
+    end
   end
 end
