@@ -48,7 +48,7 @@
       }
       #image-box {
         display: flex;
-        width: 562px;
+        width: 622px;
         margin: auto;
         #previews {
           cursor: pointer;
@@ -648,11 +648,11 @@ input[type="file"]{
     margin-top: 20px;
   }
   .test1 {
-    margin-left: 15px;
     margin-top: 20px;
     display: flex;
   }
   img {
     width: 100px;
+    margin-right: 30px;
   }
 }
